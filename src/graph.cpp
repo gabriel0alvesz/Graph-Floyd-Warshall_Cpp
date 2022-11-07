@@ -57,6 +57,39 @@ Graph::Graph(string name_file){
 
         cout << "ERRO - " << name_file << endl << endl;
     }
+
+    file.close();
+
+    MatrixAdjNull(size_graph);
+}
+
+void Graph::MatrixAdjNull(int size){
+
+    vector<float> aux;
+    for(int i = 0; i < size; i++){
+        aux.push_back(0.0);
+        
+    }
+
+    for(int i = 0; i < size; i++){
+
+        matrix_adj.push_back(aux);
+    }
+    
+}
+
+void Graph::PrintMatrix(){
+
+    int size = vertex.size();
+
+    for(int i = 0; i < size; i++){
+        
+        for(int j = 0; j < size; j++){
+            
+            cout << matrix_adj[i][j] << " ";
+        }
+        cout << endl;
+    }
 }
 
 Graph::~Graph(){}
@@ -68,3 +101,23 @@ void Graph::PrintVertex(){
         cout << n.getNameVertex() << endl;
     }
 }
+
+// int Graph::isPresentVertex(Vertex v){
+
+//     vector<Vertex>::iterator it;
+
+//     it = vertex.begin();
+
+// }
+
+// int Graph::getIndexVertex(Vertex v_aux){
+
+//     for(int i = 0; i < vertex.size(); i++){
+
+//         if(vertex[i].getNameVertex() == v_aux.getNameVertex()){
+
+//             return i;
+//         }
+//     }
+// }
+

@@ -6,7 +6,8 @@ int main(){
     //Graph g = Graph("vertex_inputs.txt");
     
     Graph g = Graph("vertex_inputs.txt");
-    g.PrintVertex();
+    //g.PrintVertex();
+    g.PrintMatrix();
     
     return 0;
 }
