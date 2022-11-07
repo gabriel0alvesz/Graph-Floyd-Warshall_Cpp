@@ -59,6 +59,8 @@ Graph::Graph(string name_file){
     }
 }
 
+Graph::~Graph(){}
+
 void Graph::PrintVertex(){
 
     for(auto n: vertex){
