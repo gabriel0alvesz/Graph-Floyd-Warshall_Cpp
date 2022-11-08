@@ -38,7 +38,6 @@ class Graph{
         int count_edges; // Quantidade de arestas no grafo todo
         vector<Vertex> vertex; // Lista de vertices para se obter indice
         vector<vector<float>> matrix_adj;
-        int getIndexVertex(Vertex v_aux);
 
     public:
 
@@ -48,6 +47,7 @@ class Graph{
         void PrintVertex();
         void PrintMatrix();
         void MatrixAdjNull(int size);
+        int getIndexVertex(Vertex v_aux);
         void MakeConection(Vertex v1, Vertex v2, float weight);
         int isPresentVertex(Vertex v);
 };

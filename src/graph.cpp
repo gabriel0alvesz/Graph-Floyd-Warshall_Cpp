@@ -110,14 +110,21 @@ void Graph::PrintVertex(){
 
 // }
 
-// int Graph::getIndexVertex(Vertex v_aux){
 
-//     for(int i = 0; i < vertex.size(); i++){
+void Graph::MakeConection(Vertex v1, Vertex v2, float weight){
 
-//         if(vertex[i].getNameVertex() == v_aux.getNameVertex()){
+    int index = getIndexVertex(v1);
 
-//             return i;
-//         }
-//     }
-// }
+    
+}
 
+int Graph::getIndexVertex(Vertex v_aux){
+
+    for(int i = 0; i < vertex.size(); i++){
+
+        if(vertex[i].getNameVertex() == v_aux.getNameVertex()){
+
+            return i;
+        }
+    }
+}
