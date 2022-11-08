@@ -47,9 +47,10 @@ class Graph{
         void PrintVertex();
         void PrintMatrix();
         void MatrixAdjNull(int size);
-        int getIndexVertex(Vertex v_aux);
-        void MakeConection(Vertex v1, Vertex v2, float weight);
-        int isPresentVertex(Vertex v);
+        void MakeConection(string name1, string name2, float weight);
+        int getIndexVertex(string name);
+        void UpdateGrade(int i1, int i2);
+
 };
 
 #endif

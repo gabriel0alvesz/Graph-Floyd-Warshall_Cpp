@@ -5,6 +5,7 @@ Vertex::Vertex(string name){
     this->name_vertex = name;
     this->grade_input = 0;
     this->grade_output = 0;
+    this->grade = 0;
 }
 
 Vertex::~Vertex(){}    
@@ -68,7 +69,6 @@ void Graph::MatrixAdjNull(int size){
     vector<float> aux;
     for(int i = 0; i < size; i++){
         aux.push_back(0.0);
-        
     }
 
     for(int i = 0; i < size; i++){
@@ -96,35 +96,47 @@ Graph::~Graph(){}
 
 void Graph::PrintVertex(){
 
-    for(auto n: vertex){
+    for(int i = 0; i < vertex.size(); i++){
 
-        cout << n.getNameVertex() << endl;
+        cout << vertex[i].getNameVertex() << endl;
     }
 }
 
-// int Graph::isPresentVertex(Vertex v){
+void Graph::MakeConection(string name1, string name2, float weight){
 
-//     vector<Vertex>::iterator it;
+    int index_v1 = getIndexVertex(name1);
+    int index_v2 = getIndexVertex(name2);
 
-//     it = vertex.begin();
+    if(index_v1 != -1 && index_v2 != -1){
 
-// }
+        matrix_adj[index_v1][index_v2] = weight;
 
+        UpdateGrade(index_v1, index_v2);
+    }
 
-void Graph::MakeConection(Vertex v1, Vertex v2, float weight){
-
-    int index = getIndexVertex(v1);
-
-    
+    cout << vertex[index_v1].getGrade() << endl;
+    cout << vertex[index_v2].getGrade() << endl;
 }
 
-int Graph::getIndexVertex(Vertex v_aux){
+int Graph::getIndexVertex(string name){
 
     for(int i = 0; i < vertex.size(); i++){
 
-        if(vertex[i].getNameVertex() == v_aux.getNameVertex()){
+        if(vertex[i].getNameVertex() == name){
 
             return i;
         }
     }
+
+    return -1;
 }
+
+void Graph::UpdateGrade(int i1, int i2){
+
+    vertex[i1].setGradeOut(); // vertice do qual sai uma aresta.
+    vertex[i2].setGradeIn(); // vertice o qual chega uma aresta.
+
+    // Atualiza o grau total
+    vertex[i1].setGrade();
+    vertex[i2].setGrade(); 
+} 
