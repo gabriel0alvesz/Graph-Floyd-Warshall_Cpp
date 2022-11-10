@@ -66,14 +66,16 @@ Graph::Graph(string name_file){
 
 void Graph::MatrixAdjNull(int size){
 
-    vector<float> aux;
+    vector<float> aux1, aux2;
     for(int i = 0; i < size; i++){
-        aux.push_back(INF);
+        aux1.push_back(INF);
+        aux2.push_back(-1);
     }
 
     for(int i = 0; i < size; i++){
 
-        matrix_adj.push_back(aux);
+        matrix_adj.push_back(aux1);
+        matrix_final.push_back(aux2);
     }
 
     for(int i = 0; i < size; i++){
@@ -82,7 +84,7 @@ void Graph::MatrixAdjNull(int size){
     }
 }
 
-void Graph::PrintMatrix(){
+void Graph::PrintMatrixAdj(){
 
     int size = vertex.size();
 
@@ -96,6 +98,19 @@ void Graph::PrintMatrix(){
     }
 }
 
+void Graph::PrintMatrixFinal(){
+    
+    int size = vertex.size();
+
+    for(int i = 0; i < size; i++){
+        
+        for(int j = 0; j < size; j++){
+            
+            cout << matrix_final[i][j] << "  \t";
+        }
+        cout << endl;
+    }
+}
 Graph::~Graph(){}
 
 void Graph::PrintVertex(){
@@ -192,6 +207,52 @@ void Graph::ReadFileConections(string name_file){
 
         cout << "ERRO - " << name_file << endl;
     }
+}
 
+void Graph::MakeFloydWarshall(){
 
+    int N = vertex.size();
+    
+    for(int k = 0; k < N; k++){             //Nessa parte analisamos a ditância entre um ponto intermediario entre i e j 
+        for(int i = 0; i < N; i++){
+            for(int j = 0; j < N; j++){
+                if(matrix_adj[i][j] > matrix_adj[i][k]+matrix_adj[k][j]){
+                    
+                    matrix_adj[i][j] = matrix_adj[i][k] + matrix_adj[k][j];
+                    matrix_final[i][j] = k;
+                }
+            }
+        }
+    }
+}
+
+void Graph::ShortPath(int index1, int index2){
+    
+    float x = 0;
+    float *soma = &x;
+
+    cout<< "\nMelhor caminho entre [" << index1 << "] e [" << index2 << "]: " << vertex[index1].getNameVertex() << " "; 
+    ShortPathAux(soma, index1, index2);
+    cout << " Custo = " << *soma << endl;
+}
+
+void Graph::ShortPathAux(float *custo, int index1, int index2){
+
+    if(matrix_final[index1][index2] == -1){
+
+        *custo += matrix_adj[index1][index2];
+        cout << vertex[index2].getNameVertex();
+        return;
+    }
+    ShortPathAux(custo,index1,matrix_final[index1][index2]);
+    cout << " ";
+    ShortPathAux(custo,matrix_final[index1][index2],index2);
+}
+
+void Graph::MakeShort(string name1, string name2){
+
+    int i = getIndexVertex(name1);
+    int j = getIndexVertex(name2);
+
+    ShortPath(i,j);
 }
