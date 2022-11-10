@@ -1,6 +1,8 @@
 #ifndef GRAPH_HPP
 #define GRAPH_HPP
 
+#define INF DBL_MAX //Representação de Infinito.
+
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -50,6 +52,7 @@ class Graph{
         void MakeConection(string name1, string name2, float weight);
         int getIndexVertex(string name);
         void UpdateGrade(int i1, int i2);
+        void ReadFileConections(string name_file);
 
 };
 

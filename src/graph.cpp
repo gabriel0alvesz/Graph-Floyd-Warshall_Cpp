@@ -68,14 +68,18 @@ void Graph::MatrixAdjNull(int size){
 
     vector<float> aux;
     for(int i = 0; i < size; i++){
-        aux.push_back(0.0);
+        aux.push_back(INF);
     }
 
     for(int i = 0; i < size; i++){
 
         matrix_adj.push_back(aux);
     }
-    
+
+    for(int i = 0; i < size; i++){
+
+        matrix_adj[i][i] = 0.0;
+    }
 }
 
 void Graph::PrintMatrix(){
@@ -86,7 +90,7 @@ void Graph::PrintMatrix(){
         
         for(int j = 0; j < size; j++){
             
-            cout << matrix_adj[i][j] << " ";
+            cout << matrix_adj[i][j] << "  \t";
         }
         cout << endl;
     }
@@ -114,8 +118,7 @@ void Graph::MakeConection(string name1, string name2, float weight){
         UpdateGrade(index_v1, index_v2);
     }
 
-    cout << vertex[index_v1].getGrade() << endl;
-    cout << vertex[index_v2].getGrade() << endl;
+    // cout << index_v1 << "/" << index_v2 << endl;
 }
 
 int Graph::getIndexVertex(string name){
@@ -140,3 +143,55 @@ void Graph::UpdateGrade(int i1, int i2){
     vertex[i1].setGrade();
     vertex[i2].setGrade(); 
 } 
+
+void Graph::ReadFileConections(string name_file){
+
+    string str_file = "./src/input/" + name_file;
+
+    ifstream file(str_file);
+
+    if(file.is_open()){
+
+         string line_token, token;
+        char del = ' ';
+
+        while(getline(file,line_token)){
+
+            stringstream sstream(line_token);
+            string str1, str2;
+            float w_ref;
+
+            int control = 0;
+            
+            while(getline(sstream,token,del)){
+
+                switch(control){
+
+                    case 0:
+                        str1 = token;
+                    break;
+
+                    case 1:
+                        str2 = token;
+                    break;
+
+                    case 2:
+                        w_ref = stof(token);
+                    break;
+                }
+                
+                control++;
+            }
+
+            control = 0;
+            
+            MakeConection(str1, str2, w_ref);
+        }
+
+    }else{
+
+        cout << "ERRO - " << name_file << endl;
+    }
+
+
+}
