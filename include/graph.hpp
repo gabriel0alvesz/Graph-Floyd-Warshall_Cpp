@@ -1,7 +1,8 @@
 #ifndef GRAPH_HPP
 #define GRAPH_HPP
 
-#define INF DBL_MAX //Representação de Infinito.
+#define INF (float)DBL_MAX //Representação de Infinito.
+#define Matrix vector<vector<float>>
 
 #include<bits/stdc++.h>
 
@@ -42,24 +43,27 @@ class Graph{
         vector<vector<float>> matrix_adj;
         vector<vector<float>> matrix_final;
 
+        void MatrixAdjNull(int size);
+        void MakeConection(string name1, string name2, float weight);
+        int getIndexVertex(string name);
+        void UpdateGrade(int i1, int i2);
+
+        void ShortPath(int index1, int index2);
+        void ShortPathAux(float *custo, int index1, int index2);
+        
     public:
 
         Graph(string name_file);
         ~Graph();
         
         void PrintVertex();
-        void PrintMatrixAdj();
-        void PrintMatrixFinal();
-        void MatrixAdjNull(int size);
-        void MakeConection(string name1, string name2, float weight);
-        int getIndexVertex(string name);
-        void UpdateGrade(int i1, int i2);
+        void PrintMatrix(Matrix m);
         void ReadFileConections(string name_file);
 
         void MakeFloydWarshall();
-        void ShortPath(int index1, int index2);
-        void ShortPathAux(float *custo, int index1, int index2);
         void MakeShort(string name1, string name2);
+        vector<vector<float>> getMatrixAdj();
+        vector<vector<float>> getMatrixFinal();
 
 };         
 

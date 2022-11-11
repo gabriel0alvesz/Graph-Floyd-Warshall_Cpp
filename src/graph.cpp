@@ -84,7 +84,7 @@ void Graph::MatrixAdjNull(int size){
     }
 }
 
-void Graph::PrintMatrixAdj(){
+void Graph::PrintMatrix(Matrix m){
 
     int size = vertex.size();
 
@@ -92,25 +92,19 @@ void Graph::PrintMatrixAdj(){
         
         for(int j = 0; j < size; j++){
             
-            cout << matrix_adj[i][j] << "  \t";
+            if(m[i][j] == INF){
+
+                cout << 0 << " ";
+
+            }else{
+
+                cout << m[i][j] << " ";
+            }
         }
         cout << endl;
     }
 }
 
-void Graph::PrintMatrixFinal(){
-    
-    int size = vertex.size();
-
-    for(int i = 0; i < size; i++){
-        
-        for(int j = 0; j < size; j++){
-            
-            cout << matrix_final[i][j] << "  \t";
-        }
-        cout << endl;
-    }
-}
 Graph::~Graph(){}
 
 void Graph::PrintVertex(){
@@ -255,4 +249,14 @@ void Graph::MakeShort(string name1, string name2){
     int j = getIndexVertex(name2);
 
     ShortPath(i,j);
+}
+
+vector<vector<float>> Graph::getMatrixAdj(){
+
+    return matrix_adj;
+}
+
+vector<vector<float>> Graph::getMatrixFinal(){
+
+    return matrix_final;
 }

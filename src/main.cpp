@@ -5,15 +5,15 @@ int main(){
     Graph g = Graph("vertex_inputs.txt");
 
     g.ReadFileConections("edges_inputs.txt");
+    g.PrintMatrix(g.getMatrixAdj());
+     cout << endl << endl;
     g.MakeFloydWarshall();
-    g.PrintMatrixAdj();
     cout << endl;
-    g.PrintMatrixFinal();
-
-    cout << endl << endl;
-
+    g.PrintMatrix(g.getMatrixFinal());
+    // cout << endl << endl;
+    
     g.MakeShort("A","C");
-    cout << endl;
+    // cout << endl;
     
     return 0;
 }
