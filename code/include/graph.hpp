@@ -1,7 +1,7 @@
 #ifndef GRAPH_HPP
 #define GRAPH_HPP
 
-#define INF (float)DBL_MAX //Representação de Infinito.
+#define INF (float)DBL_MAX //Representação de Infinito
 #define Matrix vector<vector<float>>
 
 #include<bits/stdc++.h>
@@ -40,8 +40,9 @@ class Graph{
         int size_graph; //quantidade de vertices no grafo.
         int count_edges; // Quantidade de arestas no grafo todo
         vector<Vertex> vertex; // Lista de vertices para se obter indice
-        vector<vector<float>> matrix_adj;
-        vector<vector<float>> matrix_final;
+        
+        Matrix matrix_adj;
+        Matrix matrix_final;
 
         void MatrixAdjNull(int size);
         void MakeConection(string name1, string name2, float weight);
@@ -62,9 +63,9 @@ class Graph{
 
         void MakeFloydWarshall();
         void MakeShort(string name1, string name2);
-        vector<vector<float>> getMatrixAdj();
-        vector<vector<float>> getMatrixFinal();
+        Matrix getMatrixAdj();
+        Matrix getMatrixFinal();
 
-};         
+};
 
 #endif

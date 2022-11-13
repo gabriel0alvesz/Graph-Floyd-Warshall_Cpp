@@ -111,7 +111,7 @@ void Graph::PrintVertex(){
 
     for(int i = 0; i < vertex.size(); i++){
 
-        cout << vertex[i].getNameVertex() << endl;
+        cout << vertex[i].getNameVertex() << " - " << vertex[i].getGrade() << endl;
     }
 }
 

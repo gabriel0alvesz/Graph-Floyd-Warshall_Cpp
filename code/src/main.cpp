@@ -13,7 +13,10 @@ int main(){
     // cout << endl << endl;
     
     g.MakeShort("A","C");
-    // cout << endl;
+
+    cout << endl;
+    
+    g.PrintVertex();
     
     return 0;
 }
