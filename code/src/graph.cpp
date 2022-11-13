@@ -227,9 +227,9 @@ void Graph::ShortPath(int index1, int index2){
     float x = 0;
     float *soma = &x;
 
-    cout<< "\nMelhor caminho entre [" << index1 << "] e [" << index2 << "]: " << vertex[index1].getNameVertex() << " "; 
+    cout<< "\nMelhor caminho entre [" << index1 << "] e [" << index2 << "]: " << vertex[index1].getNameVertex() << " --> "; 
     ShortPathAux(soma, index1, index2);
-    cout << " Custo = " << *soma << endl;
+    cout << " :: Custo = " << *soma << "KM" << endl;
 }
 
 void Graph::ShortPathAux(float *custo, int index1, int index2){
@@ -241,7 +241,7 @@ void Graph::ShortPathAux(float *custo, int index1, int index2){
         return;
     }
     ShortPathAux(custo,index1,matrix_final[index1][index2]);
-    cout << " ";
+    cout << " --> ";
     ShortPathAux(custo,matrix_final[index1][index2],index2);
 }
 

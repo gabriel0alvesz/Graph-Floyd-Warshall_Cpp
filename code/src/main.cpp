@@ -12,6 +12,7 @@ int main(){
     g.MakeFloydWarshall();
 
     g.MakeShort("Centro","Santo Antonio");
+    g.MakeShort("Eldorado","Peixe Vivo");
     
     return 0;
 }
