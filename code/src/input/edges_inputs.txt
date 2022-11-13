@@ -1,18 +1,68 @@
-A B 1
-A D 1
-B A 4
-B E 4
-B F 6
-C D 11
-C E 3
-C G 2
-D A 3
-D C 11
-D G 2
-E B 4
-E C 3
-E F 2
-F B 6
-F E 2
-G C 2
-G D 2
+Centro/Eldorado/2.8
+Centro/J.K/2.4
+Centro/Belvedere/1.8
+Centro/Bela Vista/1.6
+Centro/Rauny/1.4
+Centro/Copacabana/1.3
+
+Eldorado/J.K/1.2
+Eldorado/Sion/0.8
+Eldorado/Terezinha Aubieri/1.1
+
+J.K/Belvedere/1.0
+J.K/Terezinha Aubieri/1.3
+J.K/Portal do Lago/1.0
+J.K/Estancia de Furnas/5.2
+J.K/SANTO-HILARIO/24.0
+J.K/GRAMA DOS CORDEIROS/7.0
+J.K/QUILOMBO/6.3
+J.K/Vivendas do Lago/12.0
+
+Sion/Terezinha Aubieri/0.9
+Sion/Portal do Lago/1.1
+Sion/Barro Preto/0.5
+Sion/Jardim Sao Jose/0.8
+
+Terezinha Aubieri/Portal do Lago/0.5
+
+Antonio Lara/Luis Lara/0.8
+Antonio Lara/Santa Rita/0.4
+Antonio Lara/Quinca Lopes/0.4
+Antonio Lara/Rauny/0.3
+
+Luis Lara/Santa Rita/0.4
+Luis Lara/Quinca Lopes/0.3
+
+Belvedere/Bela Vista/0.2
+
+Santa Rita/Santo Antonio/0.9
+Santa Rita/Quica Lopes/0.3
+Santa Rita/Copacabana/0.6
+Santa Rita/Novo Horizonte/0.8
+
+Santo Antonio/Copacabana/0.3
+
+Quinca Lopes/Rauny/0.3
+
+Rauny/Copacabana/0.2
+
+Peixe Vivo/Copacabana/0.4
+Peixe Vivo/Novo Horizonte/1.2
+
+Copacabana/Enseada das Garças/1.2
+Copacabana/VILA-COSTINA/3.0
+Copacabana/BOA-VISTA/2.2
+
+Barro Preto/Jardim Sao Jose/0.3
+Barro Preto/Ilha do Cabaçal/1.1
+
+Estancia de Furnas/Vivendas do Lago/9.6
+Estancia de Furnas/SANTO-HILARIO/21.2
+Estancia de Furnas/QUILOMBO/5.0
+
+Vivendas do Lago/SANTO-HILARIO/17.6
+
+Enseada das Garças/Pousada das Garças/0.1
+
+SANTO-HILARIO/Recanto das Aguas/0.1
+SANTO-HILARIO/Ecomarine/3.1

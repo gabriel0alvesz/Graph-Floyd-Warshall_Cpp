@@ -155,14 +155,15 @@ void Graph::UpdateGrade(int i1, int i2){
 
 void Graph::ReadFileConections(string name_file){
 
-    string str_file = "./src/input/" + name_file;
+    string str_file = "./src/input/";
+    str_file.append(name_file);
 
     ifstream file(str_file);
 
     if(file.is_open()){
 
          string line_token, token;
-        char del = ' ';
+        char del = '/';
 
         while(getline(file,line_token)){
 
@@ -195,6 +196,7 @@ void Graph::ReadFileConections(string name_file){
             control = 0;
             
             MakeConection(str1, str2, w_ref);
+            MakeConection(str2, str1, w_ref);   
         }
 
     }else{
