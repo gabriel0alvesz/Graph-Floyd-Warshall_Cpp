@@ -5,14 +5,13 @@ int main(){
     Graph g = Graph("vertex_inputs.txt");
 
     g.ReadFileConections("edges_inputs.txt");
-    g.PrintVertex();
+    // g.PrintVertex();
     cout << endl << endl;
-    g.PrintMatrix(g.getMatrixAdj());
+    // g.PrintMatrix(g.getMatrixAdj());
     
     g.MakeFloydWarshall();
 
-    g.MakeShort("Centro","Santo Antonio");
-    g.MakeShort("Eldorado","Peixe Vivo");
+    g.MakeMinPath3("Quinca Lopes", "J.K", "Ilha do Cabaçal");
     
     return 0;
 }

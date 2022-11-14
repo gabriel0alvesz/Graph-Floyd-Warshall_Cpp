@@ -227,7 +227,8 @@ void Graph::ShortPath(int index1, int index2){
     float x = 0;
     float *soma = &x;
 
-    cout<< "\nMelhor caminho entre [" << index1 << "] e [" << index2 << "]: " << vertex[index1].getNameVertex() << " --> "; 
+    cout<< "\nMelhor caminho entre [" << getNameVertex(index1) << "] e [" << 
+    getNameVertex(index2) << "]: " << vertex[index1].getNameVertex() << " --> "; 
     ShortPathAux(soma, index1, index2);
     cout << " :: Custo = " << *soma << "KM" << endl;
 }
@@ -245,7 +246,7 @@ void Graph::ShortPathAux(float *custo, int index1, int index2){
     ShortPathAux(custo,matrix_final[index1][index2],index2);
 }
 
-void Graph::MakeShort(string name1, string name2){
+void Graph::MakePath(string name1, string name2){
 
     int i = getIndexVertex(name1);
     int j = getIndexVertex(name2);
@@ -253,12 +254,26 @@ void Graph::MakeShort(string name1, string name2){
     ShortPath(i,j);
 }
 
-vector<vector<float>> Graph::getMatrixAdj(){
+Matrix Graph::getMatrixAdj(){
 
     return matrix_adj;
 }
 
-vector<vector<float>> Graph::getMatrixFinal(){
+Matrix Graph::getMatrixFinal(){
 
     return matrix_final;
+}
+
+void Graph::MakeMinPath3(string name1, string name2, string name3){
+
+    MakePath(name1, name2);
+    cout << endl;
+
+    MakePath(name2, name3);
+    cout << endl;
+
+}
+string Graph::getNameVertex(int index){
+
+    return vertex[index].getNameVertex();
 }

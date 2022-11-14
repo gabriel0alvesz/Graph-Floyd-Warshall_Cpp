@@ -60,12 +60,17 @@ class Graph{
         void PrintVertex();
         void PrintMatrix(Matrix m);
         void ReadFileConections(string name_file);
+        
 
         void MakeFloydWarshall();
-        void MakeShort(string name1, string name2);
+        void MakePath(string name1, string name2);
         Matrix getMatrixAdj();
         Matrix getMatrixFinal();
+        string getNameVertex(int index);
+
+        void MakeMinPath3(string name1, string name2, string name3);
 
 };
+
 
 #endif
