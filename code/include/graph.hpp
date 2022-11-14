@@ -3,6 +3,7 @@
 
 #define INF (float)DBL_MAX //Representação de Infinito
 #define Matrix vector<vector<float>>
+#define LOJA (string)"Loja-SUPREMA"
 
 #include<bits/stdc++.h>
 
@@ -50,7 +51,7 @@ class Graph{
         void UpdateGrade(int i1, int i2);
 
         void ShortPath(int index1, int index2);
-        void ShortPathAux(float *custo, int index1, int index2);
+        void ShortPathAux(int index1, int index2);
         
     public:
 
@@ -61,7 +62,6 @@ class Graph{
         void PrintMatrix(Matrix m);
         void ReadFileConections(string name_file);
         
-
         void MakeFloydWarshall();
         void MakePath(string name1, string name2);
         Matrix getMatrixAdj();
@@ -69,8 +69,7 @@ class Graph{
         string getNameVertex(int index);
 
         void MakeMinPath3(string name1, string name2, string name3);
-
+        float getWeightIndex(int i1, int i2);
 };
-
 
 #endif

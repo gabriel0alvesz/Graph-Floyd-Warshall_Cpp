@@ -223,27 +223,22 @@ void Graph::MakeFloydWarshall(){
 }
 
 void Graph::ShortPath(int index1, int index2){
-    
-    float x = 0;
-    float *soma = &x;
 
-    cout<< "\nMelhor caminho entre [" << getNameVertex(index1) << "] e [" << 
-    getNameVertex(index2) << "]: " << vertex[index1].getNameVertex() << " --> "; 
-    ShortPathAux(soma, index1, index2);
-    cout << " :: Custo = " << *soma << "KM" << endl;
+    cout<< "\n[" << getNameVertex(index1) << "] para [" << 
+    getNameVertex(index2) << "]: " << getNameVertex(index1) << " --> "; 
+    ShortPathAux(index1, index2);
 }
 
-void Graph::ShortPathAux(float *custo, int index1, int index2){
+void Graph::ShortPathAux(int index1, int index2){
 
     if(matrix_final[index1][index2] == -1){
 
-        *custo += matrix_adj[index1][index2];
         cout << vertex[index2].getNameVertex();
         return;
     }
-    ShortPathAux(custo,index1,matrix_final[index1][index2]);
+    ShortPathAux(index1,matrix_final[index1][index2]);
     cout << " --> ";
-    ShortPathAux(custo,matrix_final[index1][index2],index2);
+    ShortPathAux(matrix_final[index1][index2],index2);
 }
 
 void Graph::MakePath(string name1, string name2){
@@ -266,14 +261,33 @@ Matrix Graph::getMatrixFinal(){
 
 void Graph::MakeMinPath3(string name1, string name2, string name3){
 
+    int index1 = getIndexVertex(name1);
+    int index2 = getIndexVertex(name2);
+    int index3 = getIndexVertex(name3);
+    int index_loja = getIndexVertex(LOJA);
+
+    float custo_t = 0.0;
+
+    MakePath(LOJA, name1);
+    cout << endl;
+    custo_t += getWeightIndex(index_loja,index1);
     MakePath(name1, name2);
     cout << endl;
-
+    custo_t += getWeightIndex(index1,index2);
     MakePath(name2, name3);
     cout << endl;
+    custo_t += getWeightIndex(index2,index3);
+
+    cout << "\nCusto Total = " << custo_t << " Km" << endl;
 
 }
+
 string Graph::getNameVertex(int index){
 
     return vertex[index].getNameVertex();
+}
+
+float Graph::getWeightIndex(int i1, int i2){
+
+    return matrix_adj[i1][i2];
 }
