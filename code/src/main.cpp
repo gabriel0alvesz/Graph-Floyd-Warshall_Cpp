@@ -52,7 +52,7 @@ int main(){
             control = 0;
             
             cout << "\nClientes nos bairros: " << str1 << ", " << str2 << ", " << str3 << endl;
-            g.MakeMinPath3(str1,str2,str3);
+            g.MakeMinPath3_Sequential(str1,str2,str3);
             cout << "\n---------------------------------------------------------------------------\n";
 
         }

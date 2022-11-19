@@ -1,5 +1,7 @@
 #include "../include/graph.hpp"
 
+// --------------------------- Vertex --------------------------- 
+
 Vertex::Vertex(string name){
 
     this->name_vertex = name;
@@ -8,8 +10,9 @@ Vertex::Vertex(string name){
     this->grade = 0;
 }
 
-Vertex::~Vertex(){}    
 
+Vertex::~Vertex(){}    
+            
 void Vertex::setGradeIn(){
 
     this->grade_input++;
@@ -35,9 +38,11 @@ string Vertex::getNameVertex(){return name_vertex;}
 
 // --------------------------- Graph --------------------------- 
 
+
 Graph::Graph(string name_file){
 
-    string str_file = "./src/input/" + name_file;
+    string str_file = "./src/input/";
+    str_file.append(name_file);
     string str_token;
 
     cout << str_file << endl;
@@ -64,6 +69,34 @@ Graph::Graph(string name_file){
     MatrixAdjNull(size_graph);
 }
 
+Graph::~Graph(){}
+
+int Graph::getEdgesSize(){
+
+    return count_edges;
+}
+
+string Graph::getNameVertex(int index){
+
+    return vertex[index].getNameVertex();
+}
+
+float Graph::getWeightIndex(int i1, int i2){
+
+    return matrix_adj[i1][i2];
+}
+
+Matrix Graph::getMatrixAdj(){
+
+    return matrix_adj;
+}
+
+Matrix Graph::getMatrixFinal(){
+
+    return matrix_final;
+}
+
+
 void Graph::MatrixAdjNull(int size){
 
     vector<float> aux1, aux2;
@@ -83,6 +116,7 @@ void Graph::MatrixAdjNull(int size){
         matrix_adj[i][i] = 0.0;
     }
 }
+
 
 void Graph::PrintMatrix(Matrix m){
 
@@ -105,7 +139,6 @@ void Graph::PrintMatrix(Matrix m){
     }
 }
 
-Graph::~Graph(){}
 
 void Graph::PrintVertex(){
 
@@ -123,11 +156,10 @@ void Graph::MakeConection(string name1, string name2, float weight){
     if(index_v1 != -1 && index_v2 != -1){
 
         matrix_adj[index_v1][index_v2] = weight;
-
+        count_edges++;
         UpdateGrade(index_v1, index_v2);
     }
 
-    // cout << index_v1 << "/" << index_v2 << endl;
 }
 
 int Graph::getIndexVertex(string name){
@@ -222,12 +254,6 @@ void Graph::MakeFloydWarshall(){
     }
 }
 
-void Graph::ShortPath(int index1, int index2){
-
-    cout<< "\n[" << getNameVertex(index1) << "] para [" << 
-    getNameVertex(index2) << "]: " << getNameVertex(index1) << " --> "; 
-    ShortPathAux(index1, index2);
-}
 
 void Graph::ShortPathAux(int index1, int index2){
 
@@ -246,20 +272,13 @@ void Graph::MakePath(string name1, string name2){
     int i = getIndexVertex(name1);
     int j = getIndexVertex(name2);
 
-    ShortPath(i,j);
+
+    cout<< "\n[" << getNameVertex(i) << "] para [" << 
+    getNameVertex(j) << "]: " << getNameVertex(i) << " --> "; 
+    ShortPathAux(i, j);
 }
 
-Matrix Graph::getMatrixAdj(){
-
-    return matrix_adj;
-}
-
-Matrix Graph::getMatrixFinal(){
-
-    return matrix_final;
-}
-
-void Graph::MakeMinPath3(string name1, string name2, string name3){
+void Graph::MakeMinPath3_Sequential(string name1, string name2, string name3){
 
     int index1 = getIndexVertex(name1);
     int index2 = getIndexVertex(name2);
@@ -280,14 +299,4 @@ void Graph::MakeMinPath3(string name1, string name2, string name3){
 
     cout << "\nCusto Total = " << custo_t << " Km" << endl;
 
-}
-
-string Graph::getNameVertex(int index){
-
-    return vertex[index].getNameVertex();
-}
-
-float Graph::getWeightIndex(int i1, int i2){
-
-    return matrix_adj[i1][i2];
 }
