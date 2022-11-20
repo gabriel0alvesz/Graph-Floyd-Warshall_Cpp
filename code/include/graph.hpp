@@ -26,6 +26,7 @@ class Vertex{
 
     private:
 
+    //Attributes
         string name_vertex;
         int grade_input;
         int grade_output;
@@ -50,6 +51,9 @@ class Vertex{
 };
 
 
+/**
+ * @brief Estrutura do Grafo.
+ */
 class Graph{
 
     private:

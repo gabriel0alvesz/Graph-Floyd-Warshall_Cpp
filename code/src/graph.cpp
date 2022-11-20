@@ -35,7 +35,7 @@ Vertex::~Vertex(){
 
 /**
  * @brief set grande_input
- * - Grau de entrada
+ * - Incrementa grau de entrada
 **/
 void Vertex::setGradeIn(){
 
@@ -51,7 +51,7 @@ int Vertex::getGradeIn(){return grade_input;}
 
 /**
  * @brief set grade_output
- * - Grau de saída
+ * - Incrementa grau de saída
  */
 void Vertex::setGradeOut(){
 
