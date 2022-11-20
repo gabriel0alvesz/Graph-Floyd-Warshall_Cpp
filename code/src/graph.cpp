@@ -1,7 +1,23 @@
+/**
+ * @file graph.cpp
+ * @author Gabriel Alves (https://github.com/Nerd100oculoS)
+ * @brief Arquivo de Implementação
+ * @version 0.1
+ * @date 2022-11-19
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+
 #include "../include/graph.hpp"
 
-// --------------------------- Vertex --------------------------- 
+// --------------------------- Vertex --------------------------------
 
+/**
+ * @brief Construtor tipo Vertex.
+ * 
+ * @param name Nome do Vertex.
+ */
 Vertex::Vertex(string name){
 
     this->name_vertex = name;
@@ -10,9 +26,14 @@ Vertex::Vertex(string name){
     this->grade = 0;
 }
 
+/**
+ * @brief Destrutor do tipo Vertex
+**/
+Vertex::~Vertex(){}
 
-Vertex::~Vertex(){}    
-            
+/**
+ * @brief set grande_input
+**/
 void Vertex::setGradeIn(){
 
     this->grade_input++;
@@ -38,7 +59,11 @@ string Vertex::getNameVertex(){return name_vertex;}
 
 // --------------------------- Graph --------------------------- 
 
-
+/**
+ * @brief Construct a new Graph:: Graph object
+ * 
+ * @param name_file Nome do aquivo com extensão
+ */
 Graph::Graph(string name_file){
 
     string str_file = "./src/input/";

@@ -6,12 +6,12 @@
  * 
  * @copyright Copyright (c) 2022
  * 
- */
+**/
 
 #ifndef GRAPH_HPP
 #define GRAPH_HPP
 
-#define INF (float)DBL_MAX //Representação de Infinito
+#define INF (float)DBL_MAX
 #define Matrix vector<vector<float>>
 #define LOJA (string)"Loja-SUPREMA"
 
@@ -34,62 +34,18 @@ class Vertex{
     public:
 
     // Constructor and Destructor
-
-        /**
-         * @brief Construct a new Vertex object
-         * 
-         * @param name Vertex name
-         */
         Vertex(string name);
-
-        /**
-         * @brief Destroy the Vertex object
-         */
         ~Vertex();
 
     //set's and get's
-
-        /**
-         * @brief Set the Grade In object
-         */
         void setGradeIn();
-
-        /**
-         * @brief Get the Grade In object
-         * 
-         * @return return grade_input
-         */
         int getGradeIn();
 
-        /**
-         * @brief Set the Grade Out object
-         */
         void setGradeOut();
-
-        /**
-         * @brief Get the Grade Out object
-         * 
-         * @return return grade_output
-         */
         int getGradeOut();
 
-        /**
-         * @brief Set the Grade object
-         */
         void setGrade();
-
-        /**
-         * @brief Get the Grade object
-         * 
-         * @return return grade
-         */
         int getGrade();
-
-        /**
-         * @brief Get the Name Vertex object
-         * 
-         * @return return Vertex Object name
-         */
         string getNameVertex();
 };
 
@@ -121,8 +77,6 @@ class Graph{
         ~Graph();
         
     //set's and get's
-
-        
         Matrix getMatrixAdj();
         Matrix getMatrixFinal();
         
