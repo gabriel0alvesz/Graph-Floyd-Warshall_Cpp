@@ -14,9 +14,9 @@
 // --------------------------- Vertex --------------------------------
 
 /**
- * @brief Construtor tipo Vertex.
+ * @brief Construtor da classe Vertex.
  * 
- * @param name Nome do Vertex.
+ * @param name = Nome do Vértice.
  */
 Vertex::Vertex(string name){
 
@@ -27,42 +27,76 @@ Vertex::Vertex(string name){
 }
 
 /**
- * @brief Destrutor do tipo Vertex
+ * @brief Destrutor da classe Vertex
 **/
-Vertex::~Vertex(){}
+Vertex::~Vertex(){
+    //Destrutor!
+}
 
 /**
  * @brief set grande_input
+ * - Grau de entrada
 **/
 void Vertex::setGradeIn(){
 
     this->grade_input++;
 }
 
+/**
+ * @brief get grade_input
+ * 
+ * @return grade_input
+ */
 int Vertex::getGradeIn(){return grade_input;}
 
+/**
+ * @brief set grade_output
+ * - Grau de saída
+ */
 void Vertex::setGradeOut(){
 
     this->grade_output++;
 }
 
+/**
+ * @brief get grade_output
+ * 
+ * @return grade_output
+ */
 int Vertex::getGradeOut(){return grade_output;}
 
+/**
+ * @brief set grade
+ * - Grau to vertice = grade_input + grade_output
+ */
 void Vertex::setGrade(){
 
     this->grade = getGradeIn()+getGradeOut();
 }
 
+/**
+ * @brief get grade
+ * 
+ * @return return grade
+ */
 int Vertex::getGrade(){return grade;}
 
+/**
+ * @brief get name_vertex
+ * - Nome do vértice
+ * @return name_vertex
+ */
 string Vertex::getNameVertex(){return name_vertex;}
 
 // --------------------------- Graph --------------------------- 
 
 /**
- * @brief Construct a new Graph:: Graph object
- * 
- * @param name_file Nome do aquivo com extensão
+ * @brief Construtor da classe Graph
+ * - Faz a leitura do arquivo com o nome de todos os vertices.
+ * - Armazena os vertices no vetor "vertex".
+ * - Cria a matriz de adjacência com todas as posições nula.
+ *  
+ * @param name_file = Nome do aquivo com a extensão (.txt).
  */
 Graph::Graph(string name_file){
 
@@ -90,38 +124,76 @@ Graph::Graph(string name_file){
     }
 
     file.close();
-
+    
     MatrixAdjNull(size_graph);
 }
 
-Graph::~Graph(){}
+/**
+ * @brief Destrutor da classe Graph
+ */
+Graph::~Graph(){
+    //Destrutor
+}
 
+
+/**
+ * @brief get count_edges.
+ * 
+ * @return count_edges - Quantidade de arestas no grafo.
+ */
 int Graph::getEdgesSize(){
 
     return count_edges;
 }
 
+/**
+ * @brief get Vertex::getNameVertex().
+ * - Procura o vértice no vetor vertex.
+ * @param index = Indice do vértice.
+ * @return Nome do vertíce do indice de parâmetro.
+ */
 string Graph::getNameVertex(int index){
 
     return vertex[index].getNameVertex();
 }
 
+/**
+ * @brief Busca o peso de uma aresta entre dois vértices na matriz de adjacência.
+ *
+ * @param i1 = Índice do primeiro vértice 
+ * @param i2 = Índice do segundo vértice.
+ * @return peso da aresta de conexção entre os dois vertíces.
+ */
 float Graph::getWeightIndex(int i1, int i2){
 
     return matrix_adj[i1][i2];
 }
 
+/**
+ * @brief get matrix_adj.
+ * 
+ * @return matrix_adj
+ */
 Matrix Graph::getMatrixAdj(){
 
     return matrix_adj;
 }
 
+/**
+ * @brief get matrix_final
+ * 
+ * @return matrix_final
+ */
 Matrix Graph::getMatrixFinal(){
 
     return matrix_final;
 }
 
-
+/**
+ * @brief Gera a Matriz de Adjacência nula para as futuras conexões.
+ * 
+ * @param size = Tamanho da matriz (size x size).
+ */
 void Graph::MatrixAdjNull(int size){
 
     vector<float> aux1, aux2;
@@ -142,7 +214,11 @@ void Graph::MatrixAdjNull(int size){
     }
 }
 
-
+/**
+ * @brief Imprime uma matriz.
+ * 
+ * @param m = Matriz que se deseja imprimir.
+ */
 void Graph::PrintMatrix(Matrix m){
 
     int size = vertex.size();
@@ -164,7 +240,9 @@ void Graph::PrintMatrix(Matrix m){
     }
 }
 
-
+/**
+ * @brief Imprime o vertor de Vértices (vertex).
+ */
 void Graph::PrintVertex(){
 
     for(int i = 0; i < vertex.size(); i++){
@@ -173,6 +251,14 @@ void Graph::PrintVertex(){
     }
 }
 
+/**
+ * @brief Faz a conexão entre dois vértices.
+ * - Gera uma aresta entre dois vértices.
+ * 
+ * @param name1 = Nome do 1º vértice.
+ * @param name2 = Nome do 2º vértice.
+ * @param weight = Peso da Aresta entre os dois vértices.
+ */
 void Graph::MakeConection(string name1, string name2, float weight){
 
     int index_v1 = getIndexVertex(name1);
@@ -187,6 +273,12 @@ void Graph::MakeConection(string name1, string name2, float weight){
 
 }
 
+/**
+ * @brief get do índice do vértice escolhido no vetor de vértices (vertex).
+ * 
+ * @param name = Nome do vértice 
+ * @return índice do vértice escolhido.
+ */
 int Graph::getIndexVertex(string name){
 
     for(int i = 0; i < vertex.size(); i++){
@@ -200,6 +292,12 @@ int Graph::getIndexVertex(string name){
     return -1;
 }
 
+/**
+ * @brief Faz a atualização dos graus dos vértices.
+ * 
+ * @param i1 = Índice do vertice de saída.
+ * @param i2 = Índice do vértice de entrada.
+ */
 void Graph::UpdateGrade(int i1, int i2){
 
     vertex[i1].setGradeOut(); // vertice do qual sai uma aresta.
@@ -210,6 +308,12 @@ void Graph::UpdateGrade(int i1, int i2){
     vertex[i2].setGrade(); 
 } 
 
+/**
+ * @brief Faz as conexões conforme o arquivo de entrada.
+ * - Formato: Vértice1/Vértice2/peso_da_aresta. 
+ * 
+ * @param name_file = Nome do aquivo com a extensão (.txt).
+ */
 void Graph::ReadFileConections(string name_file){
 
     string str_file = "./src/input/";
@@ -262,13 +366,22 @@ void Graph::ReadFileConections(string name_file){
     }
 }
 
+/**
+ * @brief Executa as operações para gerar uma matriz de pesos e uma matriz de caminhos.
+ * 
+ * @param matrix_adj = matriz de pesos.
+ * @param matrix_final = matriz de caminhos.
+ * 
+ */
 void Graph::MakeFloydWarshall(){
 
     int N = vertex.size();
     
-    for(int k = 0; k < N; k++){             //Nessa parte analisamos a ditância entre um ponto intermediario entre i e j 
+    //Nessa parte analisamos a ditância entre um ponto intermediario k, entre i e j 
+    for(int k = 0; k < N; k++){
         for(int i = 0; i < N; i++){
             for(int j = 0; j < N; j++){
+
                 if(matrix_adj[i][j] > matrix_adj[i][k]+matrix_adj[k][j]){
                     
                     matrix_adj[i][j] = matrix_adj[i][k] + matrix_adj[k][j];
@@ -279,7 +392,12 @@ void Graph::MakeFloydWarshall(){
     }
 }
 
-
+/**
+ * @brief Encontra o menor caminho por meio da matriz de caminhos.
+ * 
+ * @param index1 = Índice do vértice inicial.
+ * @param index2 = Índice do vértice final.
+ */
 void Graph::ShortPathAux(int index1, int index2){
 
     if(matrix_final[index1][index2] == -1){
@@ -292,6 +410,14 @@ void Graph::ShortPathAux(int index1, int index2){
     ShortPathAux(matrix_final[index1][index2],index2);
 }
 
+/**
+ * @brief Faz o caminho.
+ * - Função de auxilio de Graph::ShortPathAux.
+ * 
+ * @param name1 = Nome do vértice inicial.
+ * @param name2 = = Nome do vértice inicial.
+ * - Do vértice de onde se está, para o vértice que quer ir. 
+ */
 void Graph::MakePath(string name1, string name2){
 
     int i = getIndexVertex(name1);
@@ -303,6 +429,13 @@ void Graph::MakePath(string name1, string name2){
     ShortPathAux(i, j);
 }
 
+/**
+ * @brief Encontra o menor caminho para se ir a 3 vértices diferentes sequencialmente.
+ * 
+ * @param name1 = Nome do 1º vértice.
+ * @param name2 = Nome do 2º vértice.
+ * @param name3 = Nome do 3º vértice.
+ */
 void Graph::MakeMinPath3_Sequential(string name1, string name2, string name3){
 
     int index1 = getIndexVertex(name1);
@@ -323,5 +456,4 @@ void Graph::MakeMinPath3_Sequential(string name1, string name2, string name3){
     custo_t += getWeightIndex(index2,index3);
 
     cout << "\nCusto Total = " << custo_t << " Km" << endl;
-
 }
