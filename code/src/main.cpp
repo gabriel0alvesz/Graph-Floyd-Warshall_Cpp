@@ -62,7 +62,6 @@ int main(){
         cout << "ERRO - " << str_file << endl;
     }
 
-    
     return 0;
 }
 

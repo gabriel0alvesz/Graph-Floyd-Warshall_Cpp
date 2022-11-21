@@ -94,9 +94,9 @@ class Graph{
         void ReadFileConections(string name_file);
         
         void MakeFloydWarshall();
+        
         void MakePath_Sequential(int index1, int index2);
         void MakeMinPath3_Sequential(string name1, string name2, string name3);
-
 };
 
 #endif
