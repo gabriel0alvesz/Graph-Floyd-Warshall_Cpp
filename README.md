@@ -49,16 +49,37 @@ A representação de lista de adjacências de um grafo $G = (V , E )$ consiste e
 
 <div align="center">
 
-![lista_Grafo_NO](./assets/listGNO.png)<br> Figura 4 - Lista de Adjacência em grafo não-orientado.
+![lista_Grafo_NO](./assets/listGNO.png)<br> Figura 4 - Lista de Adjacências em grafo não-orientado.
 
-![lista_Grafo_O](./assets/listGO.png)<br> Figura 4 - Lista de Adjacência em grafo orientado.
+![lista_Grafo_O](./assets/listGO.png)<br> Figura 4 - Lista de Adjacências em grafo orientado.
 </div>
 
-De acordo com a literatura de referência, o custo do gasto de memória é dado por $\mathcal{O}(V+E)$ e é indicada para grafos esparsos.
+De acordo com a literatura de referência, o custo do gasto de memória é dado por $\mathcal{O}(V+E)$. É indicada para ***grafos esparsos*** e não representa arestas múltiplas.
 
 ### 2.2 - Matriz de Adjacências
 
-A representação da matriz de adjacências $A_G$ de $G = (V,E)$ é a matriz zero-um (binária) (n,n), com 1 como seu elemento $(i,j)$ quando $v_i$ e $v_j$ forem adjacêntes e 0 como seu elemento $(i,j)$ quando eles não forem. Em outras palavras, se sua matriz de adjacência é $A_G = [a_i_j]$, então:
+A representação da matriz de adjacências $A_G$ de $G = (V,E)$ é a matriz zero-um (binária) (n,n), com 1 como seu elemento $(i,j)$ quando $v_i$ e $v_j$ forem adjacêntes e 0 como seu elemento $(i,j)$ quando eles não forem. Em outras palavras, se sua matriz de adjacência é , então:
+
+$$
+a_{ij} = \begin{cases}
+1 & \text{ se } {(v_i,v_j) \in G}\\ 
+0 & \text{ se } {(v_i,v_j) \notin G}
+\end{cases}
+$$
+
+<div align="center">
+
+![matriz_GNO](./assets/matriz_GNO.png)<br>
+Figura 5 - Matriz de adjacências em grafo não-orientado.
+
+![matriz_GO](./assets/matriz_GO.png)<br>
+Figura 5 - Matriz de adjacências em grafo orientado.
+
+</div>
+
+A matriz de adjacências facilita a pesquisa de arestas e por isso é uma ótima opção para ***grafos densos***. Consegue representar arestas múltiplas, mas o seu custo de gasto de memória é na ordem de $\mathcal{O}(V^2)$.
+
+> Ambas as estruturas apresentadas, podem representar **Grafos Ponderados**.
 
 ## 3 - Algoritmo de Floyd-Warshall
 
