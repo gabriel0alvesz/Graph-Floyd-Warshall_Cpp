@@ -13,7 +13,37 @@
 </div>
 
 ### Resumo
-Este repositório tem o intuito de apresentar resumidamente a teória dos grafos e implementar o algoritmo de Floyd-Warshall em um problema prático. A documentação refererente a este problema esta presente no arquivo [Documentation.md](Documentation.md).
+Este repositório tem o intuito de apresentar de forma resumida a teória dos grafos e implementar o algoritmo de Floyd-Warshall em um problema prático. A documentação refererente a este problema esta presente no arquivo [Documentation.md](Documentation.md).
+
+## 1 - O que é um grafo?
+
+Grafos, são estruturas discretas que consistem em vértices e aresta que ligam estes vértices. Dentro da teória de grafos, temos os ***Grafos Não-Orientados*** e os ***Grafos Orientados***(Digrafos ou grafos dirigidos), alguns possuem características únicas e são chamados de Grafos Especiais. Matemáticamente, um grafo pode ser representado por `G = (V,E)`, sendo `V` um conjunto não vazio de vértices e `E` o conjunto de arestas. No caso dos grafos orientados, cada aresta orientada está associada a um par ordenado de vértices. É dito que a aresta orientada associada ao par de vértices {u,v} começa em u e termina em v.
+
+- Dizemos que há um laço em um vértice quando, existe uma aresta que se liga a este mesmo vértice.
+- Arestas paralelas são quando duas arestes ligam o mesmo par de vértices de forma igual.
+
+<div align="center">
+
+![Figura1](./assets/figura1.png "figura1.png")<br>
+Figura 1 - Representação de Grafo Não-Orientado.
+
+![Figura2](./assets/figura2.png "figura2.png")<br>
+Figura 2 - Representação de Grafo Orientado com múltiplas arestas.
+
+![Figura3](./assets/figura3.png "figura3.png")<br>
+Figura 3 - Tabela de terminologia de alguns grafos.
+
+</div>
+
+## 2 - Implementação de Grafos
+
+### 2.1 - Listas de Adjacência
+
+### 2.2 - Matriz de Adjacência
+
+## 3 - Algoritmo de Floyd-Warshall
+
+## 4 - Referências
 
 ## Compilação e Execução
 
