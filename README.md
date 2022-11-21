@@ -139,7 +139,13 @@ FLOYD-WARSHALL(Matriz m_dist(n,n), matriz m_pred(n,n))
 FIM-FUNÇÃO
 ```
 
+O algoritmo de Floyd-Warshall é excelente exemplo de Programação Dinâmica utilizando recursividade e pode ser utilizado uma formula matemática descrita *secção 25.2* do livro de referência $Algoritmos - H.Cormen^{[1]}$.
+
 ## 4 - Referências
+
+[1] Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein. Algoritmos:  Teoria e Prática. 3a edição. Elsevier, 2012
+
+[2] Michel Pires, @mpiress: graph - link: https://github.com/mpiress/graph. Acessado em 21 de Novembro de 2022.
 
 ## Compilação e Execução
 
