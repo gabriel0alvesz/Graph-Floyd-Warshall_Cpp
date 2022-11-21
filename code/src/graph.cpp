@@ -394,39 +394,36 @@ void Graph::MakeFloydWarshall(){
 
 /**
  * @brief Encontra o menor caminho por meio da matriz de caminhos.
+ *  - Método recursivo.
  * 
  * @param index1 = Índice do vértice inicial.
  * @param index2 = Índice do vértice final.
  */
-void Graph::ShortPathAux(int index1, int index2){
+void Graph::ShortPath_Sequential(int index1, int index2){
 
     if(matrix_final[index1][index2] == -1){
 
         cout << vertex[index2].getNameVertex();
         return;
     }
-    ShortPathAux(index1,matrix_final[index1][index2]);
+    ShortPath_Sequential(index1,matrix_final[index1][index2]);
     cout << " --> ";
-    ShortPathAux(matrix_final[index1][index2],index2);
+    ShortPath_Sequential(matrix_final[index1][index2],index2);
 }
 
 /**
  * @brief Faz o caminho.
- * - Função de auxilio de Graph::ShortPathAux.
+ * - Função de auxilio de Graph::ShortPath_Sequential.
  * 
  * @param name1 = Nome do vértice inicial.
  * @param name2 = = Nome do vértice inicial.
  * - Do vértice de onde se está, para o vértice que quer ir. 
  */
-void Graph::MakePath(string name1, string name2){
+void Graph::MakePath_Sequential(int index1, int index2){
 
-    int i = getIndexVertex(name1);
-    int j = getIndexVertex(name2);
-
-
-    cout<< "\n[" << getNameVertex(i) << "] para [" << 
-    getNameVertex(j) << "]: " << getNameVertex(i) << " --> "; 
-    ShortPathAux(i, j);
+    cout<< "\n[" << getNameVertex(index1) << "] para [" << 
+    getNameVertex(index2) << "]: " << getNameVertex(index1) << " --> "; 
+    ShortPath_Sequential(index1, index2);
 }
 
 /**
@@ -445,13 +442,13 @@ void Graph::MakeMinPath3_Sequential(string name1, string name2, string name3){
 
     float custo_t = 0.0;
 
-    MakePath(LOJA, name1);
+    MakePath_Sequential(index_loja, index1);
     cout << endl;
     custo_t += getWeightIndex(index_loja,index1);
-    MakePath(name1, name2);
+    MakePath_Sequential(index1, index2);
     cout << endl;
     custo_t += getWeightIndex(index1,index2);
-    MakePath(name2, name3);
+    MakePath_Sequential(index2, index3);
     cout << endl;
     custo_t += getWeightIndex(index2,index3);
 

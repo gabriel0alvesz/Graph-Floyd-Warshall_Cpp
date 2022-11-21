@@ -72,18 +72,17 @@ class Graph{
         void MatrixAdjNull(int size);
         void MakeConection(string name1, string name2, float weight);
         void UpdateGrade(int i1, int i2);
-        void ShortPathAux(int index1, int index2);
-        
+        void ShortPath_Sequential(int index1, int index2);
+
     public:
 
     //Constructor and Destructor
         Graph(string name_file);
         ~Graph();
-        
+
     //set's and get's
         Matrix getMatrixAdj();
         Matrix getMatrixFinal();
-        
         
         int getEdgesSize();
         string getNameVertex(int index); //Procura o indice dentro do vector
@@ -95,9 +94,9 @@ class Graph{
         void ReadFileConections(string name_file);
         
         void MakeFloydWarshall();
-        void MakePath(string name1, string name2);
-
+        void MakePath_Sequential(int index1, int index2);
         void MakeMinPath3_Sequential(string name1, string name2, string name3);
+
 };
 
 #endif
