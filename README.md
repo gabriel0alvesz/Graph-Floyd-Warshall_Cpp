@@ -73,8 +73,6 @@ $$
 Equação 1
 </div>
 
-
-
 <div align="center">
 
 ![matriz_GNO](./assets/matriz_GNO.png)<br>
@@ -90,8 +88,6 @@ A matriz de adjacências facilita a pesquisa de arestas e por isso é uma ótima
 > Ambas as estruturas apresentadas, podem representar **Grafos Ponderados**.
 
 > Toda matriz de adjacências sem laços, tem os elementos de sua *diagonal principal* iguais a zero.
-
-
 
 **Grafos Ponderados** são grafos em que as arestas que conectam os vértices, possuem pesos(valores).
 
@@ -109,8 +105,9 @@ $$
 a_{ij} = \begin{cases}
 p & \text{ se } {(v_i,v_j) \in G}\\ 
 \infty & \text{ se } {(v_i,v_j) \notin G}
-\end{cases}\text{;\space Sendo p, o peso da aresta.}
+\end{cases}\text{; Sendo p, o peso da aresta.}
 $$
+
 Equação 2
 </div>
 
@@ -119,7 +116,7 @@ Conseguiremos aplicar o algoritmo recursivo, exemplo de programação dinâmica,
  - O Algoritmo se baseia em explorar a relação entre o caminho $p$ e todos os caminhos mais curtos de $i$ a $j$ com todos os vértices intermédios de $K$(1,2,3...$k-1$).
  - A verificação dessa relação no algoritmo dependerá de $k$ ser ou não um vértice intermédio do caminho de $p$.
 
-O pseudocódigo abaixo utiliza-se duas matrizes de adjacências: A matriz de distâncias $\text{m\_dist}$ preenchida conforme a Equação 1 e a matriz de caminhos predecessores $\text{m\_pred}$ inicializada com valores nulos.  
+O pseudocódigo abaixo utiliza-se duas matrizes de adjacências: A matriz de distâncias `m_dist` preenchida conforme a Equação 1 e a matriz de caminhos predecessores `m_pred` inicializada com valores nulos.  
 
 ```
 // Sendo n o tamanho do conjunto de vértices do grafo G, temos:
@@ -141,7 +138,6 @@ FLOYD-WARSHALL(Matriz m_dist(n,n), matriz m_pred(n,n))
     FIM-PARA
 FIM-FUNÇÃO
 ```
-
 
 ## 4 - Referências
 
