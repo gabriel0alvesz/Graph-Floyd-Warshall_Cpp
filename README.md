@@ -60,12 +60,20 @@ De acordo com a literatura de referência, o custo do gasto de memória é dado 
 
 A representação da matriz de adjacências $A_G$ de $G = (V,E)$ é a matriz zero-um (binária) (n,n), com 1 como seu elemento $(i,j)$ quando $v_i$ e $v_j$ forem adjacêntes e 0 como seu elemento $(i,j)$ quando eles não forem. Em outras palavras, se sua matriz de adjacência é , então:
 
+
+<div align="right">
+
 $$
 a_{ij} = \begin{cases}
 1 & \text{ se } {(v_i,v_j) \in G}\\ 
 0 & \text{ se } {(v_i,v_j) \notin G}
-\end{cases}
+\end{cases}\\
 $$
+
+Equação 1
+</div>
+
+
 
 <div align="center">
 
@@ -73,7 +81,7 @@ $$
 Figura 5 - Matriz de adjacências em grafo não-orientado.
 
 ![matriz_GO](./assets/matriz_GO.png)<br>
-Figura 5 - Matriz de adjacências em grafo orientado.
+Figura 6 - Matriz de adjacências em grafo orientado.
 
 </div>
 
@@ -81,7 +89,59 @@ A matriz de adjacências facilita a pesquisa de arestas e por isso é uma ótima
 
 > Ambas as estruturas apresentadas, podem representar **Grafos Ponderados**.
 
+> Toda matriz de adjacências sem laços, tem os elementos de sua *diagonal principal* iguais a zero.
+
+
+
+**Grafos Ponderados** são grafos em que as arestas que conectam os vértices, possuem pesos(valores).
+
 ## 3 - Algoritmo de Floyd-Warshall
+
+O algoritmo **Floyd-Warshall** é responsável por encontrar o caminho mínimo ("caminho mais curto") entre todos os pares de vértices de um grafo. Este grafo deve ser **orientado** e **ponderado**.
+
+- Para explicar como o **Floyd-Warshall** funciona, antes deve-se ter o conhecimento de que as arestas podem ter valor (peso) negativo, entretanto,não poderá haver nenhum ciclo negativo - Caminho circular com todas as arestas com pesos negativos.
+
+Conforme as literaturas de referência, o algoritmo de **Floyd-Warshall**, recebe como entrada uma matriz de adjacências $A_G$ que representa um grafo $G = (V,E)$ de acordo com a definição dada no primeiro parágrafo deste tópico. Supondo que a matriz de adjacências da entrada, esteja preenchida corretamente no formato dado pela equação:
+
+<div align="right">
+
+$$
+a_{ij} = \begin{cases}
+p & \text{ se } {(v_i,v_j) \in G}\\ 
+\infty & \text{ se } {(v_i,v_j) \notin G}
+\end{cases}\text{;\space Sendo p, o peso da aresta.}
+$$
+Equação 2
+</div>
+
+Conseguiremos aplicar o algoritmo recursivo, exemplo de programação dinâmica, afim de encontrar o menor caminho entre um par de vértices. Isso será feito com a ajuda de um vértice intermediário $k$ pertecente à um subconjunto de vértices $K \in |V|$.
+ - Para qualquer par de vértices $(i,j)$ em $V$, considere todos os caminhos de $i$ a $j$ cujos vértices intermédios pertencem ao subconjunto $K$, e $p$ como o caminho mais curto de todos eles.
+ - O Algoritmo se baseia em explorar a relação entre o caminho $p$ e todos os caminhos mais curtos de $i$ a $j$ com todos os vértices intermédios de $K$(1,2,3...$k-1$).
+ - A verificação dessa relação no algoritmo dependerá de $k$ ser ou não um vértice intermédio do caminho de $p$.
+
+O pseudocódigo abaixo utiliza-se duas matrizes de adjacências: A matriz de distâncias $\text{m\_dist}$ preenchida conforme a Equação 1 e a matriz de caminhos predecessores $\text{m\_pred}$ inicializada com valores nulos.  
+
+```
+// Sendo n o tamanho do conjunto de vértices do grafo G, temos:
+
+FLOYD-WARSHALL(Matriz m_dist(n,n), matriz m_pred(n,n))
+    PARA K de 1 à n:
+        PARA i de 1 à n:
+            PARA j de 1 à n:
+
+                Se m_dist[i,j] > m_dist[i,k] + m_dist[k,j] ENTÃO:
+                    
+                    m_dist[i,j] = dist[i,k] + dist[k,j]
+                    m_pred[i,j] = m_pred[k,j] // salva o índice do vértice que um caminho para m_dist[i,j]
+                
+                Fim-Se
+
+            FIM-PARA
+        FIM-PARA
+    FIM-PARA
+FIM-FUNÇÃO
+```
+
 
 ## 4 - Referências
 
