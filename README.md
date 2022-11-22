@@ -141,6 +141,8 @@ FIM-FUNÇÃO
 ```
 <p align="right"> Pseudocódigo Algoritmo de Floyd-Warshall</p>
 
+> A complexidade do algoritmo de Floyd-Warshall, de acordo com a literatura é $\mathcal{O}(V^3)$.
+
 O algoritmo de Floyd-Warshall, a título de curiosidade, pode ser um excelente exemplo de Programação Dinâmica. Por meio de uma fórmula matemática, descrita na *secção 25.2* do livro de referência Algoritmos - H.Cormen $^{[1]}$, é possível implementá-lo recursivamente.
 
 ## 4 - Considerações Finais
@@ -153,7 +155,7 @@ O algoritmo de Floyd-Warshall implementado neste repositório segue a documenta�
 
 O problema prático consiste em encontrar o menor caminho - ou rota - para atender 3 clientes distintos, com cada cliente em um bairro diferente da cidade. Para isso, será utilizado o algoritmo de Floyd-Warshall, uma vez que, seu retorno é uma **Árvore Geradora Mínima** representada por uma matriz de adjacência. Por meio disso, é possível encontrar o menor caminho para qualquer par de vértices.
 
-Os detalhes restantes sobre o problema prático se encontra em [DOCUMENTATION.md](DOCUMENTATION.md).
+Os detalhes restantes sobre o problema prático e como o código foi implementado, se encontra em [DOCUMENTATION.md](DOCUMENTATION.md).
 
 ## 5 - Referências
 

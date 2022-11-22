@@ -43,5 +43,15 @@ Agora, para deixar mais evidente o problema, o caminhão será carregado sequenc
 
 ## 3 - O Algoritmo
 
+Conforme a documentação anterior, presente em [Readme.md](./README.md), foi implementado o algoritmo de Floyd-Warshall conforme a literatura, ou seja, utilizando **Matriz de adjacências**. O código do projeto foi desenvolvido por meio de classes na linguagem C++.
+
+### 3.1 - Diagrama de Classes
+
+Para a criação do grafo orientado, foi utilizado duas classes e para facilitar a legibilidade do código, foi utilizado 3 definições.
+
+![diagramas](./assets/diagramas.png)<br>
+Figura 2 - Diagrama de classes
+
+### 3.2 - Funcionamento
 
 </div>
