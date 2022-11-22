@@ -3,7 +3,11 @@
 <div align="center">
 
 # Problema do Caminho Mínimo
-### Para Entregas Sequenciais em Bairros Distintos de Pimenta-MG 
+## Para Entregas Sequenciais em Bairros Distintos de Pimenta-MG 
+
+![Pimenta_vistaAerea](./assets/Pimenta_vistaAerea.png)<br>
+Figura 1 - Vista Aérea da cidade de Pimenta-MG.
+
 
 </div>
 
@@ -14,13 +18,6 @@ A cidade de **Pimenta**, localizada no estado de **Minas Gerais**, à 240Km da c
 Os bairros são: *Antonio Lara, Barro Preto, Bela Vista, Belvedere, Centro, Copacabana, Eldorado, Enseada das Garças, Estancia de Furnas, Ilha do Cabaçal, J.K, Jardim Sao Jose, Luis Lara, Novo Horizonte, Peixe Vivo, Portal do Lago, Pousada das Garças, Quinca Lopes, Rauny, Santa Rita, Santo Antonio, Sion, Terezinha Aubieri e Vivendas do Lago*. Contando ainda com o distrito de *Santo-Hilário*, que possui dois bairros, *Recanto das Águas e Ecomarine*. Além disso, não podendo esquecer das 4 zonas rurais, que são: B*oa-Vista, Grama-dos-Cordeiros, Quilombo e Vila-Costina*.
 
 > De acordo com o **IBGE** de 2021, a população estimada de Pimenta é de 8715 habitantes. Mas, conforme com algumas estimativas da Prefeitura, esse número pode ser maior em até 380 habitantes.
-
-<div align="center">
-
-![Pimenta_vistaAerea](./assets/Pimenta_vistaAerea.png)
-Figura 1 - Vista Aérea da cidade de Pimenta-MG.
-
-</div>
 
 ## 2 - O problema
 
