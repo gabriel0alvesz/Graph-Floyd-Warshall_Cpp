@@ -13,11 +13,11 @@
 </div>
 
 ### Resumo
-Este repositório tem o intuito de apresentar de forma resumida a teória dos grafos e implementar o algoritmo de Floyd-Warshall em um problema prático. A documentação refererente a este problema esta presente no arquivo [Documentation.md](Documentation.md).
+Este repositório tem o intuito de apresentar de forma resumida a teória de grafos e implementar o algoritmo de Floyd-Warshall em um problema prático. A documentação refererente a este problema está presente em arquivo separado, sendo possível acessá-lo por meio do *linker* no último tópico.
 
 ## 1 - O que é um grafo?
 
-Grafos, são estruturas discretas que consistem em vértices e aresta que ligam estes vértices. Dentro da teória de grafos, temos os ***Grafos Não-Orientados*** e os ***Grafos Orientados***(Digrafos ou grafos dirigidos), alguns possuem características únicas e são chamados de Grafos Especiais. Matemáticamente, um grafo pode ser representado por $G = (V,E)$, sendo $V$ um conjunto não vazio de vértices e $E$ o conjunto de arestas. No caso dos grafos orientados, cada aresta orientada está associada a um par ordenado de vértices. É dito que a aresta orientada associada ao par de vértices $ {(u,v)} $ começa em $u$ e termina em $v$.
+Grafos, são estruturas discretas que consistem em vértices e aresta que ligam estes vértices. Dentro da teória de grafos, temos os ***Grafos Não-Orientados*** e os ***Grafos Orientados*** (Digrafos ou grafos dirigidos), alguns possuem características únicas e são chamados de Grafos Especiais. Matemáticamente, um grafo pode ser representado por $G = (V,E)$, sendo $V$ um conjunto não vazio de vértices e $E$ o conjunto de arestas. No caso dos grafos orientados, cada aresta orientada está associada a um par ordenado de vértices. É dito que a aresta orientada associada ao par de vértices $ {(u,v)} $ começa em $u$ e termina em $v$.
 
 - Dizemos que há um laço em um vértice quando, existe uma aresta que se liga a este mesmo vértice.
 - Arestas paralelas são quando duas arestes ligam o mesmo par de vértices de forma igual.
@@ -87,9 +87,10 @@ A matriz de adjacências facilita a pesquisa de arestas e por isso é uma ótima
 
 > Ambas as estruturas apresentadas, podem representar **Grafos Ponderados**.
 
-> Toda matriz de adjacências sem laços, tem os elementos de sua *diagonal principal* iguais a zero.
+**Grafos Ponderados**, são grafos em que as arestas que conectam os vértices, possuem pesos - ou valores.
 
-**Grafos Ponderados** são grafos em que as arestas que conectam os vértices, possuem pesos(valores).
+> Matriz de adjacências que não possuem laços, têm os elementos de sua *diagonal principal* iguais a zero.
+
 
 ## 3 - Algoritmo de Floyd-Warshall
 
@@ -113,7 +114,7 @@ Equação 2
 
 Conseguiremos aplicar o algoritmo recursivo, exemplo de programação dinâmica, afim de encontrar o menor caminho entre um par de vértices. Isso será feito com a ajuda de um vértice intermediário $k$ pertecente à um subconjunto de vértices $K \in |V|$.
  - Para qualquer par de vértices $(i,j)$ em $V$, considere todos os caminhos de $i$ a $j$ cujos vértices intermédios pertencem ao subconjunto $K$, e $p$ como o caminho mais curto de todos eles.
- - O Algoritmo se baseia em explorar a relação entre o caminho $p$ e todos os caminhos mais curtos de $i$ a $j$ com todos os vértices intermédios de $K$(1,2,3...$k-1$).
+ - O Algoritmo se baseia em explorar a relação entre o caminho $p$ e todos os caminhos mais curtos de $i$ a $j$ com todos os vértices intermédios de $K$($k$...$k-1$).
  - A verificação dessa relação no algoritmo dependerá de $k$ ser ou não um vértice intermédio do caminho de $p$.
 
 O pseudocódigo abaixo utiliza-se duas matrizes de adjacências: A matriz de distâncias `m_dist` preenchida conforme a Equação 1 e a matriz de caminhos predecessores `m_pred` inicializada com valores nulos.  
@@ -138,16 +139,29 @@ FLOYD-WARSHALL(Matriz m_dist(n,n), matriz m_pred(n,n))
     FIM-PARA
 FIM-FUNÇÃO
 ```
+<p align="right"> Pseudocódigo Algoritmo de Floyd-Warshall</p>
 
-O algoritmo de Floyd-Warshall é excelente exemplo de Programação Dinâmica utilizando recursividade e pode ser utilizado uma formula matemática descrita *secção 25.2* do livro de referência $Algoritmos - H.Cormen^{[1]}$.
+O algoritmo de Floyd-Warshall, a título de curiosidade, pode ser um excelente exemplo de Programação Dinâmica. Por meio de uma fórmula matemática, descrita na *secção 25.2* do livro de referência Algoritmos - H.Cormen$^{[1]}$, é possível implementá-lo recursivamente.
 
-## 4 - Referências
+## 4 - Considerações Finais
 
-[1] Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein. Algoritmos:  Teoria e Prática. 3a edição. Elsevier, 2012
+### 4.1 - Limitações do Algoritmo
 
-[2] Michel Pires, @mpiress: graph - link: https://github.com/mpiress/graph. Acessado em 21 de Novembro de 2022.
+O algoritmo de Floyd-Warshall implementado neste repositório segue a documentação acima. Ou seja, foi implementado com **Matriz de Adjacências**. Contudo, seria possível modificar o algoritmo para utilizar **Lista de Adjacências** - dessa forma, o custo em gasto de memória, ficaria menor -, visto que, o grafo gerado no problema prático é uma grafo esparso.
 
-## Compilação e Execução
+### 4.2 - O problema prático
+
+O problema prático consiste em encontrar o menor caminho - ou rota - para atender 3 clientes distintos, com cada cliente em um bairro diferente da cidade. Para isso, será utilizado o algoritmo de Floyd-Warshall, uma vez que, seu retorno é uma **Árvore Geradora Mínima** representada por uma matriz de adjacência. Por meio disso, é possível encontrar o menor caminho para qualquer par de vértices.
+
+Os detalhes restantes sobre o problema prático se encontra em [DOCUMENTATION.md](DOCUMENTATION.md).
+
+## 5 - Referências
+
+[1] Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein. Algoritmos:  Teoria e Prática. 3ª edição. Elsevier, 2012
+
+[2] Michel Pires - Repositório GitHub, @mpiress: graph - link: https://github.com/mpiress/graph. Acessado em 21 de Novembro de 2022.
+
+## 6 - Compilação e Execução
 
 Para compiplar e executar o algoritmo, este repositório deve ser ***clonado***. Depois, acessar a pasta `code` de caminho **`Graph-Floyd-Warshall/code`** e Executar os comandos abaixo conforme suas funções.
 
@@ -157,5 +171,10 @@ Para compiplar e executar o algoritmo, este repositório deve ser ***clonado***.
 |  `make`                | Executa a compilação do programa utilizando o gcc, e o resultado vai para a pasta build           |
 |  `make run`            | Executa o programa da pasta build após a realização da compilação                                 |
 
+### *Documentação Doxygen
+
+A documentação gerada pelo Doxygen se encontra na pasta Doxygen.
+- Na pasta html, basta abrir o arquivo `index.html` em qualquer navegador web.
+- Há também o PDF  gerado por meio do Latex do Doxygen.
 
 </div>
