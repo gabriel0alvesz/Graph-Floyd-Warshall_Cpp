@@ -17,7 +17,7 @@ Este repositório tem o intuito de apresentar de forma resumida a teória de gra
 
 ## 1 - O que é um grafo?
 
-Grafos, são estruturas discretas que consistem em vértices e aresta que ligam estes vértices. Dentro da teória de grafos, temos os ***Grafos Não-Orientados*** e os ***Grafos Orientados*** (Digrafos ou grafos dirigidos), alguns possuem características únicas e são chamados de Grafos Especiais. Matemáticamente, um grafo pode ser representado por $G = (V,E)$, sendo $V$ um conjunto não vazio de vértices e $E$ o conjunto de arestas. No caso dos grafos orientados, cada aresta orientada está associada a um par ordenado de vértices. É dito que a aresta orientada associada ao par de vértices $ {(u,v)} $ começa em $u$ e termina em $v$.
+Grafos, são estruturas discretas que consistem em vértices e aresta que ligam estes vértices. Dentro da teória de grafos, temos os ***Grafos Não-Orientados*** e os ***Grafos Orientados*** (Digrafos ou grafos dirigidos), alguns possuem características únicas e são chamados de Grafos Especiais. Matemáticamente, um grafo pode ser representado por $G = (V,E)$, sendo $V$ um conjunto não vazio de vértices e $E$ o conjunto de arestas. No caso dos grafos orientados, cada aresta orientada está associada a um par ordenado de vértices. É dito que a aresta orientada associada ao par de vértices ${(u,v)}$ começa em $u$ e termina em $v$.
 
 - Dizemos que há um laço em um vértice quando, existe uma aresta que se liga a este mesmo vértice.
 - Arestas paralelas são quando duas arestes ligam o mesmo par de vértices de forma igual.
@@ -114,7 +114,7 @@ Equação 2
 
 Conseguiremos aplicar o algoritmo recursivo, exemplo de programação dinâmica, afim de encontrar o menor caminho entre um par de vértices. Isso será feito com a ajuda de um vértice intermediário $k$ pertecente à um subconjunto de vértices $K \in |V|$.
  - Para qualquer par de vértices $(i,j)$ em $V$, considere todos os caminhos de $i$ a $j$ cujos vértices intermédios pertencem ao subconjunto $K$, e $p$ como o caminho mais curto de todos eles.
- - O Algoritmo se baseia em explorar a relação entre o caminho $p$ e todos os caminhos mais curtos de $i$ a $j$ com todos os vértices intermédios de $K$($k$...$k-1$).
+ - O Algoritmo se baseia em explorar a relação entre o caminho $p$ e todos os caminhos mais curtos de $i$ a $j$ com todos os vértices intermédios de $K$ $(k...k-1)$.
  - A verificação dessa relação no algoritmo dependerá de $k$ ser ou não um vértice intermédio do caminho de $p$.
 
 O pseudocódigo abaixo utiliza-se duas matrizes de adjacências: A matriz de distâncias `m_dist` preenchida conforme a Equação 1 e a matriz de caminhos predecessores `m_pred` inicializada com valores nulos.  
@@ -141,7 +141,7 @@ FIM-FUNÇÃO
 ```
 <p align="right"> Pseudocódigo Algoritmo de Floyd-Warshall</p>
 
-O algoritmo de Floyd-Warshall, a título de curiosidade, pode ser um excelente exemplo de Programação Dinâmica. Por meio de uma fórmula matemática, descrita na *secção 25.2* do livro de referência Algoritmos - H.Cormen$^{[1]}$, é possível implementá-lo recursivamente.
+O algoritmo de Floyd-Warshall, a título de curiosidade, pode ser um excelente exemplo de Programação Dinâmica. Por meio de uma fórmula matemática, descrita na *secção 25.2* do livro de referência Algoritmos - H.Cormen $^{[1]}$, é possível implementá-lo recursivamente.
 
 ## 4 - Considerações Finais
 
