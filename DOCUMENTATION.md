@@ -122,7 +122,7 @@ Figura 4 - Resultado da Implementação
 
 </div>
 
-> Caso queira testar o algoritmo, basta modificar o arquivo de `input_teste.txt`, mantendo o formato separação, por vírgulas. Certifique-se também de não escrever o nome dos bairros incorretamente.
+> Caso queira testar o algoritmo, basta modificar o arquivo de `input_teste.txt`, mantendo o formato de separação, por vírgulas. Certifique-se também de não escrever o nome dos bairros incorretamente.
 
 ## 5 - Conclusão
 
