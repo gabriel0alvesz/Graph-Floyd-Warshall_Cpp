@@ -4,7 +4,7 @@
 
 # Grafos: Algoritmo de Floyd-Warshall
 
-#### Trabalho Prático da Disciplina de Algoritmo e Estrutura de Dados II
+#### Trabalho Prático da Disciplina de Algoritmos e Estrutura de Dados II
 
 #### Gabriel Oliveira Alves
 
