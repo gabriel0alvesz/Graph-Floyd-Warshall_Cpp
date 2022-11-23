@@ -33,7 +33,7 @@ Suponhamos 3 clientes: A, B e C. Todos os três, moram em bairros diferentes e c
 | -----------| ----------------------------------------------|---------------
 |A           | 12 sacos de Cimento e 10 sacos de cal         |  Antonio Lara
 |B           | 14 telhas de fibrocimento (2,44 x 1,10)       |  J.K
-|C           | 1m$^{3}$ de Areia grossa                      |  Barro Preto
+|C           | 1m $^{3}$ de Areia grossa                      |  Barro Preto
 
 Ao passar este pedido para os funcionários que irão carregar o caminhão com os materiais. Os mesmo, irão fazer o seu trabalho da melhor forma possível, com o intuito de facilitar o descarregamento nos endereços dos clientes. Dessa forma, ao carregarem o caminhão, os mesmos funcionários irão passar a ordem com que as entregas deverão ser feitas. Neste caso hipotético, a ordem seria: Primeiro o **cliente B**, pelo fato de as telhas de fibrocimento serem frágeis e compridas, são sempre traspontadas em cima de algum material - neste caso, em cima dos sacos de cimento ou de cal - e amarradas ao caminhão. Logo em seguida será o **cliente A**, visto que, os sacos de cimento pesam 50kg e os sacos de cal, pesam 20Kg e por isso, são carregados bem em frente as aberturas das portas laterais do caminhão - isso facilita também o carregamento. Por fim, o último será o **cliente C**, pelo fato de a areia se esparramar, deve ser carregada primeiro, e deve ser coloca na região central, até a parte traseira da caçamba, para facilitar o descarregamento.
 
