@@ -100,6 +100,7 @@ SHORTPATH_SEQUENTIAL(indice1, indice2)
 FIM-FUNÇÃO
 ```
 <p align="right"> Pseudocódigo do método ShortPath_Sequential</p>
+    
 Vale ressaltar que os métodos `MakePath_Sequential(int index1, int index2)` e `ShortPath_Sequential(int index1, int index2)` têm suas chamadas feitas dentro do procedimento `MakeMinPath3_Sequential(string name1, string name2, string name3)`. O método **`MakePATH_Sequential`** é chamado 4 vezes, devido ao vértice loja.
 
 > Como toda entrega sempre saíra da loja, a primeira chamada de **`MakePATH_Sequential`** o nome do primeiro vértice deverá ser loja-SUPREMA, definido no DEFINE como LOJA.
