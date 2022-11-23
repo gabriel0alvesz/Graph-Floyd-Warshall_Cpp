@@ -165,7 +165,7 @@ Os detalhes restantes sobre o problema prático e como o código foi implementad
 
 ## 6 - Compilação e Execução
 
-Para compiplar e executar o algoritmo, este repositório deve ser ***clonado***. Depois, acessar a pasta `code` de caminho **`Graph-Floyd-Warshall/code`** e Executar os comandos abaixo conforme suas funções.
+Para compilar e executar o algoritmo, este repositório deve ser ***clonado***. Depois, acessar a pasta `code` de caminho **`Graph-Floyd-Warshall/code`** e Executar os comandos abaixo conforme suas funções.
 
 | Comando                |  Função                                                                                           |                     
 | -----------------------| ------------------------------------------------------------------------------------------------- |
