@@ -175,7 +175,7 @@ Para compiplar e executar o algoritmo, este repositório deve ser ***clonado***.
 
 ### *Documentação Doxygen
 
-A documentação gerada pelo Doxygen se encontra na pasta Doxygen.
+A documentação gerada pelo Doxygen se encontra na pasta doxygen.
 - Na pasta html, basta abrir o arquivo `index.html` em qualquer navegador web.
 - Há também o PDF  gerado por meio do Latex do Doxygen.
 

@@ -122,13 +122,13 @@ Figura 4 - Resultado da Implementação
 
 </div>
 
-> Caso queira testar o algoritmo, basta modificar o arquivo de `input_teste.txt`, mantendo o formato de separação, por vírgulas. Certifique-se também de não escrever o nome dos bairros incorretamente.
+> Caso queira testar o algoritmo, basta modificar o arquivo de`input_teste.txt`, mantendo o formato de separação, por vírgulas. Certifique-se também de não escrever o nome dos bairros incorretamente.
 
 ## 5 - Conclusão
 
-Após todas implementação e testes, pode-se concluir que o algoritmo funciona conforme a literatura e que a implmentação após a execução do **Floyd-Warshall**,cumpre o seu papel para o problema específico da empresa "SUPREMA".
+Após todas implementação e testes, pode-se concluir que o algoritmo funciona conforme a literatura e que a implmentação após a execução do **Floyd-Warshall**, cumpre o seu papel para o problema específico da empresa "SUPREMA".
 
-Vale apena fazer a ressalva de que, foi utilizado bairros como vértices, pelo fato de que a cidade não possuir mapas atualizados, e também, devido ao tempo para a entrega deste trabalho.
+Vale apena fazer a ressalva de que, foi utilizado bairros como vértices, pelo fato de a cidade não possuir mapas atualizados, e também, devido ao tempo para a entrega deste trabalho.
 
 ## 6 - Referências
 
