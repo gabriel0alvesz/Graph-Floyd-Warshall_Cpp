@@ -5,13 +5,18 @@ int main(){
     Graph g = Graph("vertex_inputs.txt");
     // g.PrintVertex(); //Para mostrar todos os bairros
     g.ReadFileConections("edges_inputs.txt");
+    cout << "------------------------> Matriz de adjacencia inicialmente:\n";
     g.PrintMatrix(g.getMatrixAdj());
     cout << endl << endl;
     
     g.MakeFloydWarshall();
-    // g.PrintMatrix(g.getMatrixFinal());
+    cout << "------------------------> Matriz de adjacencia após FLOYD-WARSHALL:\n";
+    g.PrintMatrix(g.getMatrixAdj());
 
-    cout << "-----------------> Aôp Pimenta!!\n\n";
+    cout << "\n\n------------------------> Matriz de caminhos:\n";
+    g.PrintMatrix(g.getMatrixFinal());
+
+    cout << "\n\n\n-----------------> Aôp Pimenta!!\n\n";
     cout << "<--------------------- Menor Caminho para atender clientes em 3 bairros diferentes sequencialmente --------------------->\n\n";
     
     string str_file = "./src/input/input_teste.txt";

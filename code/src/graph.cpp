@@ -229,11 +229,11 @@ void Graph::PrintMatrix(Matrix m){
             
             if(m[i][j] == INF){
 
-                cout << 0 << " ";
+                cout << 0.0 << "    ";
 
             }else{
 
-                cout << m[i][j] << " ";
+                cout << m[i][j] << "  ";
             }
         }
         cout << endl;
