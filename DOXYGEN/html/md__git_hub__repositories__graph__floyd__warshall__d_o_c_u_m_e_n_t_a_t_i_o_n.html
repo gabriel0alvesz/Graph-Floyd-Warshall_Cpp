@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Graph-Floyd-Wasrhall: DOCUMENTATION</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Graph-Floyd-Wasrhall<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Trabalho da Disciplina de Algoritmos e Estrutura de Dados || - Gabriel Oliveira Alves</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.5 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhum resultado encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">DOCUMENTATION </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><div align="justify"></div><div align="justify"><div align="center"></div></div><div align="justify"><div align="center"></div></div><h1><a class="anchor" id="autotoc_md0"></a>
+Problema do Caminho Mínimo</h1>
+<div align="justify"><div align="center"></div></div><h2><a class="anchor" id="autotoc_md1"></a>
+Para Entregas Sequenciais em Bairros Distintos de Pimenta-MG</h2>
+<div align="justify"><div align="center"> <img src="./assets/Pimenta_vistaAerea.png" alt="Pimenta_vistaAerea" class="inline"/><br  />
+ Figura 1 - Vista Aérea da cidade de Pimenta-MG.</div></div><div align="justify"><div align="center"></div></div><div align="justify"></div><h2><a class="anchor" id="autotoc_md2"></a>
+1 - Introdução</h2>
+<div align="justify"> A cidade de <b>Pimenta</b>, localizada no estado de <b>Minas Gerais</b>, à 240Km da capital <b>Belo Horizonte</b>. Possui ao todo 24 bairros e 1 Distrito - isso, de acordo com a Prefeitura Municipal. Contudo, para uma mapeamento melhor das cidade e para fidelidade do problema, foram introduzidas 4 Zonas Rurais que não são documentadas como logradouros pela prefeitura, mas possuem sua importância devido a quantidade substancial de habitantes em cada uma delas.</div><div align="justify">Os bairros são: <em>Antonio Lara, Barro Preto, Bela Vista, Belvedere, Centro, Copacabana, Eldorado, Enseada das Garças, Estancia de Furnas, Ilha do Cabaçal, J.K, Jardim Sao Jose, Luis Lara, Novo Horizonte, Peixe Vivo, Portal do Lago, Pousada das Garças, Quinca Lopes, Rauny, Santa Rita, Santo Antonio, Sion, Terezinha Aubieri e Vivendas do Lago</em>. Contando ainda com o distrito de <em>Santo-Hilário</em>, que possui dois bairros, <em>Recanto das Águas e Ecomarine</em>. Além disso, não podendo esquecer das 4 zonas rurais, que são: B*oa-Vista, Grama-dos-Cordeiros, Quilombo e Vila-Costina*.</div><div align="justify"><blockquote class="doxtable">
+<p >&zwj;De acordo com o <b>IBGE</b> de 2021, a população estimada de Pimenta é de 8715 habitantes. Mas, conforme com algumas estimativas da Prefeitura, esse número pode ser maior em até 380 habitantes. </p>
+</blockquote>
+</div><h2><a class="anchor" id="autotoc_md3"></a>
+2 - O problema</h2>
+<div align="justify"> Devido a expansão do agronegócio, a cidade está em constante crescimento. Consequentemente, também houve uma expansão no ramo da construção cívil. Tanto na área industrial/agrícola, quanto na área doméstica. Com isso a loja de materiais de construção, "SUPREMA", localizada na <em>rua Olinto Fonseca, nº544</em>, recentemente começou a enfretar um problema para atender seus clientes de maneira rápida e eficiente.</div><div align="justify">O caminhão "toco", como é popularmente chamado, devido ao fato de a sua "caçamba" ter abertura para todos os lados, consegue carregar 13,5 toneladas de material. Este caminhão é muito utilizado quando é necessário transportar mais de um material, seja ele um material bruto - como brita, areia, terra e etc - ou não - como sacos de cimento, argamassa, tijolos e etc. O problema da empresa começa quando é preciso atender 3 clientes ou mais, que estão situados em bairros diferentes e necessitam de materiais distintos.</div><div align="justify"></div><h3><a class="anchor" id="autotoc_md4"></a>
+2.1 - O problema na prática</h3>
+<div align="justify"> Suponhamos 3 clientes: A, B e C. Todos os três, moram em bairros diferentes e cada um comprou sos seguintes materiais:</div><div align="justify"><table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Clientes   </th><th class="markdownTableHeadNone">Materiais   </th><th class="markdownTableHeadNone">Bairros    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">A   </td><td class="markdownTableBodyNone">12 sacos de Cimento e 10 sacos de cal   </td><td class="markdownTableBodyNone">Antonio Lara    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">B   </td><td class="markdownTableBodyNone">14 telhas de fibrocimento (2,44 x 1,10)   </td><td class="markdownTableBodyNone">J.K    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">C   </td><td class="markdownTableBodyNone">1m$^{3}$ de Areia grossa   </td><td class="markdownTableBodyNone">Barro Preto   </td></tr>
+</table>
+</div><div align="justify">Ao passar este pedido para os funcionários que irão carregar o caminhão com os materiais. Os mesmo, irão fazer o seu trabalho da melhor forma possível, com o intuito de facilitar o descarregamento nos endereços dos clientes. Dessa forma, ao carregarem o caminhão, os mesmos funcionários irão passar a ordem com que as entregas deverão ser feitas. Neste caso hipotético, a ordem seria: Primeiro o <b>cliente B</b>, pelo fato de as telhas de fibrocimento serem frágeis e compridas, são sempre traspontadas em cima de algum material - neste caso, em cima dos sacos de cimento ou de cal - e amarradas ao caminhão. Logo em seguida será o <b>cliente A</b>, visto que, os sacos de cimento pesam 50kg e os sacos de cal, pesam 20Kg e por isso, são carregados bem em frente as aberturas das portas laterais do caminhão - isso facilita também o carregamento. Por fim, o último será o <b>cliente C</b>, pelo fato de a areia se esparramar, deve ser carregada primeiro, e deve ser coloca na região central, até a parte traseira da caçamba, para facilitar o descarregamento.</div><div align="justify">Recapitulando o que foi dito acima, para deixar mais claro o problema, o caminhão será carregado sequencialmente com os materiais dos seguintes clientes na ordem: C $\to$ B $\to$ A. E a entrega será feita na seguinte sequência de clientes na ordem: B $\to$ A $\to$ C. Note que, não necessariamente a ordem de entrega será a ordem inversa da ordem de carregamento dos materiais no caminhão. Dessa forma, temos que encontrar o menor caminho para atender os clientes sequencialmente, saíndo com a nota fiscal da loja e indo para o bairro <em>J.K</em> e depois para o bairro <em>Antonio Lara</em> e por fim o bairro <em>Barro Preto</em>.</div><div align="justify"><blockquote class="doxtable">
+<p >&zwj;Antes de lidar com o problema do caminho mínimo é preciso lidar com a logística do abastecimento do caminhão com os materiais que deverão ser entregues. Com isso pode-se deixar claro que, as entregas dependem de como o caminhão será carregado e é a ordem de entrega dos materiais que definem a ordem da busca pelo menor caminho no algoritmo. </p>
+</blockquote>
+</div><h2><a class="anchor" id="autotoc_md5"></a>
+3 - O Algoritmo</h2>
+<div align="justify"> Conforme a documentação anterior, presente em /Users/gabriel/Desktop/GitHub <a class="el" href="_r_e_a_d_m_e_8md.html">Repositories/Graph-Floyd-Warshall/README.md</a> "Readme.md", foi implementado o algoritmo de Floyd-Warshall conforme a literatura, ou seja, utilizando <b>Matriz de adjacências</b>. O código do projeto foi desenvolvido por meio de classes na linguagem C++.</div><div align="justify"></div><h3><a class="anchor" id="autotoc_md6"></a>
+3.1 - Diagrama de Classes</h3>
+<div align="justify"> Para a criação do grafo orientado, foi utilizado duas classes e para facilitar a legibilidade do código, foi utilizado 3 definições.</div><div align="justify"><div align="center"></div></div><div align="justify"><div align="center"><img src="./assets/diagramas.png" alt="diagramas" class="inline"/><br  />
+ Figura 2 - Diagrama de classes</div></div><div align="justify"><div align="center"></div></div><div align="justify">A classe <b><a class="el" href="class_vertex.html" title="Estrutura do Vértice.">Vertex</a></b> é a estrutura do vértice. No grafo que foi construido, cada vértice representa um bairro da cidade de Pimenta. Por isso temos o atributo <code>string name_vertex</code>. Os demais atributos são referentes aos graus de entrada - quantidade de arestas que chegam a um vértice -, aosgraus de saída - quantidades de arestas que saem de um vértice. O grau de um vértice é dado pela soma dos graus de entrada e de saída. Os métodos desta classe são todos criado para acessar os atributos.</div><div align="justify">A classe <b><a class="el" href="class_graph.html" title="Estrutura do Grafo.">Graph</a></b> é a estrutura do grafo orientado. Nela, temos os atributos responsáveis pelo funcionamento da estrutura, desde as variáveis que guardam a quantidade de vértices e arestas do grafo, até o vetor que contém todos os vértices presentes no grafo. Para representar este grafo e implementar o Floyd-Warshall, temos também como atributos duas matrizes de adjacências, <code>matrix_adj</code> - responsável inicialmente, por representar as conexões entre os vértices com seus respectivos pesos - e a <code>matrix_final</code> - resposável apenas por ser a matriz de caminhos (predecessores). Com relação aos métodos, temos os "famosos" útilitários - <em>get's e set's</em> -, os que fazem o funcionamento da estrutura, como o próprio construtor, e os métodos <code>MatrixAdjNull(int size)</code>, <code>MakeConection(string name1, string name2, float weight)</code>, <code>ReadFileConections(string name_file)</code>,<code>PrintVertex()</code> e <code>PrintMatrix(Matrix m)</code> . Além destes métodos citados, temos os métodos responsáveis por nos dar os resultados do problema de caminho mínimo, como o próprio procedimento para executar o Floyd-Warshall, <code>MakeFloydWarshall()</code> e os procedimentos com a responsabilidade de encontrar o caminho mínimo entre os 3 bairros distintos de forma sequencial, <code>ShortPath_Sequential(int index1, int index2)</code>, <code>MakePath_Sequential(int index1, int index2)</code> e <code>MakeMinPath3_Sequential(string name1, string name2, string name3)</code>. Todos os métodos não explicados aqui neste parágrafo serão compreendidos ao explicar o funcionamento do código.</div><div align="justify"></div><h3><a class="anchor" id="autotoc_md7"></a>
+3.2 - Funcionamento</h3>
+<div align="justify"><ul>
+<li>O código inicialmente faz a leitura do arquivo de vértices **<code>vertex_inputs.txt</code>** e armazenando cada vértice no vetor de <code>vertex</code> logo em seguida é contabilizado quantos vértices há no vetor e então faz-se as inicializações das matrizes de adjacências pelo método <code>MatrixAdjNull(int size)</code>. Toda esta parte anterior descrita é implementada dentro do contrutor da classe <b><a class="el" href="class_graph.html" title="Estrutura do Grafo.">Graph</a></b>.</li>
+<li>Em seguida, é feita a leitura do arquivo de conexões entre os vértices - no caso deste problema, o arquivo contém os bairros e suas conexões ponderadas - **<code>edges_inputs.txt</code>**. Por meio da leitura, é possivel encontrar o índice de cada par vértice na matriz <code>matriz_adj</code> e então colocar o valor referente ao peso da conexão entre estes dois vértices - estas conexões são feitas pelo método <code>MakeConection(string name1, string name2, float weight)</code>. Toda a lógica em volta da leitrua do arquivo esta implementado dentro do procedimento <code>ReadFileConections(string name_file)</code>.</li>
+</ul>
+</div><div align="justify">Após terem sido feitas todas as conexões do arquivo **<code>vertex_inputs.txt</code>**, a <code>matrix_adj</code> irá representar o seguinte grafo referente aos bairros da cidade de Pimenta. Conforme a Figura 3 abaixo, cujo os bairros são os representado pelos círculos, as zonas rurais por triaângulos e o único distrito, por um hexágono.</div><div align="justify"><div align="center"></div></div><div align="justify"><div align="center"><img src="./assets/graph.png" alt="graph" class="inline"/><br  />
+</div></div><div align="justify"><div align="center">Figura 3 - Representação em grafo dos bairros da cidade de Pimenta-MG</div></div><div align="justify"><div align="center"></div></div><div align="justify"><blockquote class="doxtable">
+<p >&zwj;Como pode ser visto na Figura 4, foi adicionado o vértice LOJA, represetado por uma quadrado vermelho. Isso significa que a loja está a 100 metros do ponto de referência do centro. Lembrando de que a unidade de medida das arestas são em Quilómetros. </p>
+</blockquote>
+<blockquote class="doxtable">
+<p >&zwj;Todas as arestas foram ponderadas levando em consideração um ponto de referência em cada bairro. Com o auxilio do Google Maps, foi obtido as distâncias relativas entre cada ponto. Está longe de ser uma maneira precisa, mas servirá de exemplo para apresentar o funcionamento do algoritmo para o problema. </p>
+</blockquote>
+<ul>
+<li>Depois, é feita a chamada do procedimento <code>MakeFloydWarshall()</code> que executa o algoritmo de <b>Floyd-Warshal</b> tendo como entrada, <code>matrix_adj</code> e <code>matrix_final</code>. Após a execução do método, a <code>matrix_adj</code> se torna a matriz de pesos, com o custo mínimo para ir de um vértice para outro vértice - neste caso, o menor custo para se ir de um bairro para outro. Já a <code>matrix_final</code> é prenchida com os caminhos - indice dos vértices que são caminhos para se encontrar o menor caminho.</li>
+</ul>
+</div><div align="justify">Após todo este processamento, entra a parte de encontrar o menor caminho. A partir dos resultados das duas matrizes, que passaram pelo algoritmo de <b>Floyd-Warshall</b>. Temos o método <code>MakeMinPath3_Sequential(string name1, string name2, string name3)</code>, ele recebe como parâmetro o nome dos 3 bairros onde as entregas deverão ser feitas. Dentro deste procedimento, é feita a obtencão dos índices desses vétices - bairros - e então é chamado o método <code>MakePath_Sequential(int index1, int index2)</code> de forma a pergar dois vértices de cada vez. Este segundo método, recebe dois índices, o primeiro é do vértice de saída e o segundo é do vértice de entrada, além de servir como auxilio para receber o terceiro método <code>ShortPath_Sequential(int index1, int index2)</code>. Este último método é recursivo e percorre a matriz de caminhos, imprimindo os vértices que são parte do caminho mínimo. Para facilitar a compreensão, o pseudocódigo abaixo irá mostrar como este terceiro e ultimo método funciona.</div><div align="justify"><div class="fragment"><div class="line">SHORTPATH_SEQUENTIAL(indice1, indice2)</div>
+<div class="line"> </div>
+<div class="line">    // os caminhos que não são preenchidos, é colocado como -1.</div>
+<div class="line">    SE matrix_final[indice1][indice2] == -1</div>
+<div class="line">        Imprime(vertex[indice2].nome());</div>
+<div class="line">    FIM-SE</div>
+<div class="line"> </div>
+<div class="line">    SHORTPATH_SEQUENTIAL(indice1,matrix_final[indice1][indice2])</div>
+<div class="line">    Imprime(&quot;--&gt;&quot;)</div>
+<div class="line">    SHORTPATH_SEQUENTIAL(matrix_final[indice1][indice2],indice2)</div>
+<div class="line"> </div>
+<div class="line">FIM-FUNÇÃO</div>
+</div><!-- fragment --> </div><div align="justify"> Pseudocódigo do método ShortPath_Sequential</div><div align="justify"></div><div align="justify">Vale ressaltar que os métodos <code>MakePath_Sequential(int index1, int index2)</code> e <code>ShortPath_Sequential(int index1, int index2)</code> têm suas chamadas feitas dentro do procedimento <code>MakeMinPath3_Sequential(string name1, string name2, string name3)</code>. O método **<code>MakePATH_Sequential</code>** é chamado 4 vezes, devido ao vértice loja.</div><div align="justify"><blockquote class="doxtable">
+<p >&zwj;Como toda entrega sempre saíra da loja, a primeira chamada de **<code>MakePATH_Sequential</code>** o nome do primeiro vértice deverá ser loja-SUPREMA, definido no DEFINE como LOJA. </p>
+</blockquote>
+<blockquote class="doxtable">
+<p >&zwj;Caso sejá necessário um entendimento mais aprofundado dos métodos, acesse a documentação do código gerada por Doxygen na pasta DOXYGEN, presente neste repositório. </p>
+</blockquote>
+</div><h2><a class="anchor" id="autotoc_md8"></a>
+4 - Resultado</h2>
+<div align="justify"> No arquivo <code><a class="el" href="main_8cpp.html">main.cpp</a></code>, é feita a implementação do código. Nele é feito a leitura do arquivo <code>input_teste.txt</code>, cujo em seu conteúdo é dado 2 pedidos nos seguintes bairros:<ul>
+<li>**1º $\to$** Antonio Lara, Rauny e Copacabana</li>
+<li>**2º $\to$** Santa Rita, J.K e Novo Horizonte</li>
+</ul>
+</div><div align="justify">O arquivo é lido e é feita a chamada do procedimento **<code>MakeMinPath3_Sequential</code>**. Os parâmetros do método são preenchidos conforme a sequência do arquivo. Os resultados obtidos estão na Figura 4 abaixo.</div><div align="justify"><div align="center"></div></div><div align="justify"><div align="center"><img src="./assets/result.png" alt="result" class="inline"/><br  />
+ Figura 4 - Resultado da Implementação</div></div><div align="justify"><div align="center"></div></div><div align="justify"><blockquote class="doxtable">
+<p >&zwj;Caso queira testar o algoritmo, basta modificar o arquivo de <code>input_teste.txt</code>, mantendo o formato de separação, por vírgulas. Certifique-se também de não escrever o nome dos bairros incorretamente. </p>
+</blockquote>
+</div><h2><a class="anchor" id="autotoc_md9"></a>
+5 - Conclusão</h2>
+<div align="justify"> Após todas implementação e testes, pode-se concluir que o algoritmo funciona conforme a literatura e que a implmentação após a execução do <b>Floyd-Warshall</b>,cumpre o seu papel para o problema específico da empresa "SUPREMA".</div><div align="justify">Vale apena fazer a ressalva de que, foi utilizado bairros como vértices, pelo fato de que a cidade não possuir mapas atualizados, e também, devido ao tempo para a entrega deste trabalho.</div><div align="justify"></div><h2><a class="anchor" id="autotoc_md10"></a>
+6 - Referências</h2>
+<div align="justify"> [1] Prefeitura Municipal de Pimenta, site:[<a href="http://pimenta.mg.gov.br/prefeitura/nossa-cidade/">http://pimenta.mg.gov.br/prefeitura/nossa-cidade/</a>] Acessado em 23 de Novembro de 2022.</div><div align="justify">[2] IBGE: Pimenta, site:[<a href="https://cidades.ibge.gov.br/brasil/mg/pimenta/panorama">https://cidades.ibge.gov.br/brasil/mg/pimenta/panorama</a>]. Acessado em 23 de Novembro de 2022.</div><div align="justify"></div> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>
